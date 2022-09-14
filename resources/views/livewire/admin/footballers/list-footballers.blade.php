@@ -27,7 +27,7 @@
                             <div class="d-flex justify-content-end">
                                 <button wire:click.prevent="addNew" class="btn btn-primary">
                                     <i class="fa fa-plus-circle mr-1"></i>
-                                    Add New User
+                                    Add New Footballer
                                 </button>
                             </div>
 
@@ -54,7 +54,7 @@
                                                 <i class="fa fa-edit mr-2"></i>
                                             </a>
                                             <a href="">
-                                                <i class="fa fa-trash text-danger"></i>
+                                                <i class="fa fa-eye-slash text-danger"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -77,34 +77,36 @@
     <!-- Modal -->
     <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new user</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form modal -->
-                    <form>
+            <form autocomplete="off" wire:submit.prevent="createFootballer">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add new user</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- modal -->
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputName">Name</label>
-                                <input type="text" class="form-control" id="inputName">
+                                <input wire:model.defer="state.name" type="text" class="form-control" id="inputName">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputPassword4">Surname</label>
-                                <input type="text" class="form-control" id="inputSurname">
+                                <input wire:model.defer="state.surname" type="text" class="form-control"
+                                    id="inputSurname">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="inputNumber">Number</label>
-                                <input type="text" class="form-control" id="inputNumber">
+                                <input wire:model.defer="state.number" type="text" class="form-control"
+                                    id="inputNumber">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputPostion">Position</label>
-                                <select id="inputPosition" class="form-control">
+                                <select wire:model.defer="state.position" id="inputPosition" class="form-control">
                                     <option selected>Choose...</option>
                                     <option>Goalkeeper</option>
                                     <option>Defender</option>
@@ -114,7 +116,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="inputState">Status</label>
-                                <select id="inputState" class="form-control">
+                                <select wire:model.defer="state.status" id="inputState" class="form-control">
                                     <option selected>Choose...</option>
                                     <option>Active</option>
                                     <option>Inactive</option>
@@ -123,17 +125,16 @@
                         </div>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-secondary mr-1" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                         </div>
 
-
-                    </form>
-                    <!-- /End form modal-->
-                </div>
-            </div>
+            </form>
+            <!-- /End modal-->
         </div>
     </div>
-    <!-- /.modal -->
+</div>
+</div>
+<!-- /.modal -->
 
 
 </div>
