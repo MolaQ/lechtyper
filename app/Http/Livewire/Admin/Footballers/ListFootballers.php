@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Users;
+namespace App\Http\Livewire\Admin\Footballers;
 
 use Livewire\Component;
 
-class ListUsers extends Component
+class ListFootballers extends Component
 {
     public function addNew()
     {
@@ -12,6 +12,6 @@ class ListUsers extends Component
     }
     public function render()
     {
-        return view('livewire.admin.users.list-users');
+        return view('livewire.admin.footballers.list-footballers');
     }
 }

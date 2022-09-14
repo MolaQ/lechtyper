@@ -49,19 +49,21 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.users') }}"
+                        class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Appointments
+                            Users
                         </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('admin.footballers') }}"
+                        class="nav-link {{ request()->is('admin/footballers') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Users
+                            Footballers
                         </p>
                     </a>
                 </li>
