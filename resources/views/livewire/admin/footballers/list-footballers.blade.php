@@ -30,37 +30,37 @@
                                     Add New Footballer
                                 </button>
                             </div>
-
-
-                            <p class="card-text">
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Avatar</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Screen Name</th>
-                                        <th scope="col">Options</th>
+                                        <th scope="col">Nr</th>
+                                        <th scope="col">Pozycja</th>
+                                        <th scope="col">Imię</th>
+                                        <th scope="col">Nazwisko</th>
+                                        <th scope="col">Operacje</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th scope="row">#1</th>
+                                        <td>Bramkarz</td>
+                                        <td>Filip</td>
+                                        <td>Bednarek</td>
                                         <td>
                                             <a href="">
                                                 <i class="fa fa-edit mr-2"></i>
                                             </a>
                                             <a href="">
+                                                <i class="fa fa-bars mr-2 text-success"></i>
+                                            </a>
+                                            <a href="">
                                                 <i class="fa fa-eye-slash text-danger"></i>
                                             </a>
+
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            </p>
 
                             <a href="#" class="card-link">Card link</a>
                             <a href="#" class="card-link">Another link</a>
@@ -74,67 +74,36 @@
     </div>
     <!-- /.content -->
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        Launch static backdrop modal
+    </button>
+
     <!-- Modal -->
-    <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="form" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" wire:ignore.self>
             <form autocomplete="off" wire:submit.prevent="createFootballer">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add new user</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- modal -->
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputName">Name</label>
-                                <input wire:model.defer="state.name" type="text" class="form-control" id="inputName">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputPassword4">Surname</label>
-                                <input wire:model.defer="state.surname" type="text" class="form-control"
-                                    id="inputSurname">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputNumber">Number</label>
-                                <input wire:model.defer="state.number" type="text" class="form-control"
-                                    id="inputNumber">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputPostion">Position</label>
-                                <select wire:model.defer="state.position" id="inputPosition" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>Goalkeeper</option>
-                                    <option>Defender</option>
-                                    <option>Midfielder</option>
-                                    <option>Striker</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputState">Status</label>
-                                <select wire:model.defer="state.status" id="inputState" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>Active</option>
-                                    <option>Inactive</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-secondary mr-1" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
             </form>
-            <!-- /End modal-->
         </div>
     </div>
-</div>
-</div>
-<!-- /.modal -->
 
 
+</div>
+</div>
 </div>
