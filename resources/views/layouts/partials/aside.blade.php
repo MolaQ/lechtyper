@@ -53,7 +53,7 @@
                         class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Users
+                            Użytkownicy
                         </p>
                     </a>
                 </li>
@@ -61,9 +61,19 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.footballers') }}"
                         class="nav-link {{ request()->is('admin/footballers') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Footballers
+                            Piłkarze
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.footballers') }}"
+                        class="nav-link {{ request()->is('admin/betevents') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Kalendarz
                         </p>
                     </a>
                 </li>
@@ -80,7 +90,7 @@
 
                 <li class="nav-item">
                     <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fa fa-power-off"></i>
                         <p>
                             Logout
                         </p>

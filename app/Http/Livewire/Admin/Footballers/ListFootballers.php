@@ -2,16 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Footballers;
 
+use App\Http\Livewire\Admin\AdminComponent;
 use App\Models\Footballer;
 use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
-use Livewire\WithPagination;
 
-class ListFootballers extends Component
+class ListFootballers extends AdminComponent
 {
-    use WithPagination;
 
-    protected $paginationTheme = 'bootstrap';
     public $state = [];
     public $showEditModal = false;
     public $footballer;
