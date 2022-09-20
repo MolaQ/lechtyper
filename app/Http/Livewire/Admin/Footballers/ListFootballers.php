@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Admin\Footballers;
 use App\Models\Footballer;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListFootballers extends Component
 {
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     public $state = [];
     public $showEditModal = false;
     public $footballer;
@@ -83,7 +87,7 @@ class ListFootballers extends Component
     }
     public function render()
     {
-        $footballers = Footballer::all();
+        $footballers = Footballer::latest()->paginate(10);
         return view('livewire.admin.footballers.list-footballers', [
             'footballers' => $footballers,
         ]);

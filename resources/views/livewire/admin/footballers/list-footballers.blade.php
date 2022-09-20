@@ -69,11 +69,15 @@
                             </table>
                             </p>
 
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
 
+                        </div>
+
+                    </div>
+                    <div class="card-footer d-flex justify-content-end">
+
+                        {{ $footballers->links(0) }}
+
+                    </div>
                 </div>
             </div>
             <!-- /.row -->
@@ -125,8 +129,10 @@
                                 <select wire:model.defer="state.position"
                                     class="custom-select @error('position') is-invalid @enderror" id="position">
                                     <option selected value="">-- pozycja --</option>
-                                    <option>GK</option>
-                                    <option>DEF</option>
+                                    <option>G</option>
+                                    <option>D</option>
+                                    <option>M</option>
+                                    <option>F</option>
                                 </select>
                             </div>
                             <div class="col-md-6
