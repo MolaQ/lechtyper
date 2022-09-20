@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Users</h1>
+                    <h1 class="m-0">PIŁKARZE</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item"><a href="#">Panel administracyjny</a></li>
+                        <li class="breadcrumb-item active">Piłkarze</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -27,7 +27,7 @@
                             <div class="d-flex justify-content-end">
                                 <button wire:click.prevent="addNew" class="btn btn-primary">
                                     <i class="fa fa-plus-circle mr-1"></i>
-                                    Add New User
+                                    Dodaj nowego piłkarza
                                 </button>
                             </div>
 
@@ -36,28 +36,34 @@
                             <table class="table table-dark table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Avatar</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Screen Name</th>
+                                        <th scope="col">lp.</th>
+                                        <th scope="col">#Nr</th>
+                                        <th scope="col">Imię</th>
+                                        <th scope="col">Nazwisko</th>
+                                        <th scope="col">Pozycja</th>
                                         <th scope="col">Options</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <a href="">
-                                                <i class="fa fa-edit mr-2"></i>
-                                            </a>
-                                            <a href="">
-                                                <i class="fa fa-trash text-danger"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($footballers as $footballer)
+                                        <tr>
+                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <td><span
+                                                    class="badge badge-pill badge-primary">#{{ $footballer->number }}</span>
+                                            </td>
+                                            <td>{{ $footballer->name }}</td>
+                                            <td>{{ $footballer->surname }}</td>
+                                            <td>{{ $footballer->position }}</td>
+                                            <td>
+                                                <a href="">
+                                                    <i class="fa fa-edit mr-2"></i>
+                                                </a>
+                                                <a href="">
+                                                    <i class="fa fa-trash text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             </p>
@@ -75,86 +81,63 @@
     <!-- /.content -->
 
     <!-- Modal -->
-    <!-- Modal -->
-    <div class="modal fade" id="form" tabindex="-1" aria-labelledby="form" aria-hidden="true">
-        <div class="modal-dialog" wire:ignore.self>
-            <form autocomplete="off" wire:submit.prevent="createFootballer">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Footballer</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+    <div class="modal fade" id="form" role="dialog" tabindex="-1" aria-labelledby="form" aria-hidden="true"
+        wire:ignore.self>
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Footballer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" wire:submit.prevent="createFootballer">
                         <div class="form-row">
                             <div class="col-md-2 mb-3">
                                 <label for="number">Nr</label>
-                                <input wire:model.defer="state.number" type="text" class="form-control"
-                                    id="number" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <input wire:model.defer="state.number" type="text"
+                                    class="form-control @error('number') is-invalid @enderror" id="number">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="name">Imię</label>
-                                <input wire:model.defer="state.name" type="text" class="form-control" id="name"
-                                    required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <input wire:model.defer="state.name" type="text"
+                                    class="form-control @error('name') is-invalid @enderror" id="name">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="surname">Nazwisko</label>
-                                <input wire:model.defer="state.surname" type="text" class="form-control"
-                                    id="surname" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <input wire:model.defer="state.surname" type="text"
+                                    class="form-control @error('surname') is-invalid @enderror" id="surname">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="position">Pozycja</label>
-                                <select wire:model.defer="state.position" class="custom-select" id="position" required>
-                                    <option selected disabled value="">-- pozycja --</option>
+                                <select wire:model.defer="state.position"
+                                    class="custom-select @error('position') is-invalid @enderror" id="position">
+                                    <option selected value="">-- pozycja --</option>
                                     <option>GK</option>
                                     <option>DEF</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="status">State</label>
-                                <select wire:model.defer="state.status" class="custom-select" id="status" required>
-                                    <option selected disabled value="">-- status --</option>
+                            <div class="col-md-6
+                                    mb-3">
+                                <label for="status">Status</label>
+                                <select wire:model.defer="state.status"
+                                    class="custom-select @error('status') is-invalid @enderror" id="status">
+                                    <option selected value="">-- status --</option>
                                     <option>Aktywny</option>
                                     <option>Nieaktywny</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid state.
-                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
-                                    required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
             </form>
         </div>
     </div>

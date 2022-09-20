@@ -26,11 +26,16 @@ class ListFootballers extends Component
 
         Footballer::create($data);
 
+        $this->dispatchBrowserEvent('hide-form', ['message' => 'Piłkarz dodany pomyślnie!']);
+
         return redirect()->back();
     }
 
     public function render()
     {
-        return view('livewire.admin.footballers.list-footballers');
+        $footballers = Footballer::all();
+        return view('livewire.admin.footballers.list-footballers', [
+            'footballers' => $footballers,
+        ]);
     }
 }
