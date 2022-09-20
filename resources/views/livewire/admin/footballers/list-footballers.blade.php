@@ -26,8 +26,8 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
                                 <button wire:click.prevent="addNew" class="btn btn-primary">
-                                    <i class="fa fa-plus-circle mr-1"></i>
-                                    Dodaj nowego piłkarza
+                                    <i class="fa fa-plus-circle mr-1"></i> Dodaj nowego piłkarza
+
                                 </button>
                             </div>
 
@@ -55,10 +55,11 @@
                                             <td>{{ $footballer->surname }}</td>
                                             <td>{{ $footballer->position }}</td>
                                             <td>
-                                                <a href="">
+                                                <a href="" wire:click.prevent="edit({{ $footballer }})">
                                                     <i class="fa fa-edit mr-2"></i>
                                                 </a>
-                                                <a href="">
+                                                <a href=""
+                                                    wire:click.prevent="confirmFootballerRemover({{ $footballer->id }})">
                                                     <i class="fa fa-trash text-danger"></i>
                                                 </a>
                                             </td>
@@ -87,13 +88,20 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Footballer</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        @if ($showEditModal)
+                            <span>Edytuj dane piłkarza</span>
+                        @else
+                            <span>Dodaj nowego piłkarza</span>
+                        @endif
+                    </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form autocomplete="off" wire:submit.prevent="createFootballer">
+                    <form autocomplete="off"
+                        wire:submit.prevent="{{ $showEditModal ? 'updateFootballer' : 'createFootballer' }}">
                         <div class="form-row">
                             <div class="col-md-2 mb-3">
                                 <label for="number">Nr</label>
@@ -135,13 +143,45 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">
+                        @if ($showEditModal)
+                            <span>Aktualizuj</span>
+                        @else
+                            <span>Dodaj</span>
+                        @endif
+
+                    </button>
                 </div>
             </div>
             </form>
         </div>
     </div>
     <!-- Modal end -->
+
+    <!-- Delete Confirmation modal -->
+    <div class="modal fade" id="delete-modal" role="dialog" tabindex="-1" aria-labelledby="form" aria-hidden="true"
+        wire:ignore.self>
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Usuwanie piłkarza
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <h4>Jesteś pewny, że chcesz usunąć tego piłkarza?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                    <button type="button" wire:click.prevent="deleteFootballer" class="btn btn-danger">Tak,
+                        usuń!</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Delete Confirmation modal end-->
 
 </div>
 </div>
