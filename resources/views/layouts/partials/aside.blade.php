@@ -69,8 +69,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.footballers') }}"
-                        class="nav-link {{ request()->is('admin/betevents') ? 'active' : '' }}">
+                    <a href="{{ route('admin.calendar') }}"
+                        class="nav-link {{ request()->is('admin/calendar') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
                             Kalendarz
