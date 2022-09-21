@@ -408,6 +408,7 @@
 <body class="antialiased">
     {{ $slot }}
 
+    <livewire:usercounter />
     <livewire:scripts />
 </body>
 
