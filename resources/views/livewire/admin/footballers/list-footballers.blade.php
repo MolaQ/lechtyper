@@ -33,7 +33,7 @@
 
 
                             <p class="card-text">
-                            <table class="table table-dark table-hover">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th scope="col">lp.</th>
@@ -48,8 +48,11 @@
                                     @foreach ($footballers as $footballer)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td><span
-                                                    class="badge badge-pill badge-primary">#{{ $footballer->number }}</span>
+                                            <td>
+                                                <h4>
+                                                    <span
+                                                        class="badge badge-pill badge-primary">#{{ $footballer->number }}</span>
+                                                </h4>
                                             </td>
                                             <td>{{ $footballer->name }}</td>
                                             <td>{{ $footballer->surname }}</td>
