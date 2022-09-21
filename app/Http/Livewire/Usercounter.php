@@ -7,8 +7,6 @@ use Livewire\Component;
 
 class Usercounter extends Component
 {
-    protected $listeners = ['changedFootballerCounter' => 'render'];
-
     public function render()
     {
 

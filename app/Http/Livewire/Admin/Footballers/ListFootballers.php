@@ -34,7 +34,6 @@ class ListFootballers extends AdminComponent
         Footballer::create($data);
 
         $this->dispatchBrowserEvent('hide-form', ['message' => 'Piłkarz dodany pomyślnie!']);
-        $this->emit('changedFootballerCounter');
     }
 
     public function edit(Footballer $footballer)
@@ -77,7 +76,6 @@ class ListFootballers extends AdminComponent
     {
         $footballer = Footballer::findOrFail($this->footballerIdBeingRemoved);
         $footballer->delete();
-        $this->emit('changedFootballerCounter');
         $this->dispatchBrowserEvent('hide-delete-modal', ['message' => 'Piłkarz usunięty pomyślnie!']);
     }
     public function render()
