@@ -49,7 +49,7 @@
     <script src="{{ asset('frontend/assets/plugins/nprogress/nprogress.js') }}"></script>
 </head>
 
-<body class="header-fixed sidebar-fixed bg-primary" id="body">
+<body class="header-fixed sidebar-fixed" id="body">
 
     <div class="wrapper">
 
@@ -74,7 +74,7 @@
                 <div class="" data-simplebar style="height: 100%;">
                     <!-- sidebar menu -->
                     <ul class="nav sidebar-inner" id="sidebar-menu">
-                        <li class="active">
+                        <li class="">
                             <a class="sidenav-item-link" href="{{ route('home') }}">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="nav-text">#LechTYPER</span>
@@ -131,7 +131,7 @@
               ——— CONTENT WRAPPER
               ===================================== -->
             <div class="content-wrapper">
-                <div class="content">
+                <div class="content bg-primary">
 
                     <div class="row">
                         <div class="col-12">
