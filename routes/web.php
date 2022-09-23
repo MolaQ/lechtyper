@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/twitter', [TwitterController::class, 'connect_twitter'])->name('twitter');
 Route::get('/twitter/callback', [TwitterController::class, 'twitter_callback'])->name('twitter.callback');
+Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitter.logout');
 
 Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboard');
 Route::get('/admin/users', ListUsers::class)->name('admin.users');
