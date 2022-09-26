@@ -25,6 +25,7 @@ class User extends Authenticatable
         'followers_count',
         'friends_count',
         'profile_image_url',
+        'ban',
 
     ];
 
