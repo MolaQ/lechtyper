@@ -16,12 +16,12 @@
     <link href="https://cdn.materialdesignicons.com/4.4.95/css/materialdesignicons.min.css" rel="stylesheet" />
 
     <!-- PLUGINS CSS STYLE -->
-    <link href="{{ asset('fontpage/assets/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('fontpage/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontend/assets/plugins/simplebar/simplebar.css') }}" rel="stylesheet" />
+    <link href="{{ asset('frontend/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
 
     <!-- No Extra plugin used -->
-    <link href='{{ asset('fontpage/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}' rel='stylesheet'>
-    <link href='{{ asset('fontpage/assets/plugins/daterangepicker/daterangepicker.css') }}' rel='stylesheet'>
+    <link href='{{ asset('frontend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}' rel='stylesheet'>
+    <link href='{{ asset('frontend/assets/plugins/daterangepicker/daterangepicker.css') }}' rel='stylesheet'>
 
 
     <link href='{{ asset('frontend/assets/plugins/toastr/toastr.min.css') }}' rel='stylesheet'>
@@ -192,13 +192,11 @@
 
     <script src='{{ asset('frontend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js') }}'></script>
     <script src='{{ asset('frontend/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js') }}'></script>
-    <script src='{{ asset('frontend/assets/js/vector-map.js') }}'></script>
-
     <script src='{{ asset('frontend/assets/plugins/daterangepicker/moment.min.js') }}'></script>
     <script src='{{ asset('frontend/assets/plugins/daterangepicker/daterangepicker.js') }}'></script>
     <script src='{{ asset('frontend/assets/js/date-range.js') }}'></script>
 
-    <script src='{{ asset(' frontend/assets/plugins/toastr/toastr.min.js') }}'></script>
+    <script src='{{ asset('frontend/assets/plugins/toastr/toastr.min.js') }}'></script>
 
 
 
@@ -213,7 +211,6 @@
 
     <script src="{{ asset('frontend/assets/js/sleek.js') }}"></script>
     <link href="{{ asset('frontend/assets/options/optionswitch.css') }}" rel="stylesheet">
-    <script src="{{ asset('frontend/optionswitcher.js') }}assets/options/"></script>
 </body>
 
 </html>
