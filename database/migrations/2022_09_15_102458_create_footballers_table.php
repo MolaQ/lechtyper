@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('footballers', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('number');
+            $table->tinyInteger('nr');
             $table->string('name');
-            $table->string('surname');
+            $table->string('nickname');
             $table->string('position');
             $table->string('status');
             $table->timestamps();
