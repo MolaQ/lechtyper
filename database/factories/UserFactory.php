@@ -17,11 +17,20 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        League::create(['nr' => 1, 'name' => 'Ekstraklapa']);
-        League::create(['nr' => 8, 'name' => 'Ósma liga miszczuf']);
+        return [
+            'id_str' => fake()->text(),
+            'name' => fake()->firstName(),
+            'screen_name' => fake()->name(),
+            'description' => fake()->words($nb = 5, $asText = true),
+            'followers_count' => fake()->numberBetween(100, 10000),
+            'friends_count' => fake()->numberBetween(100, 10000),
+            'profile_image_url' => fake()->imageUrl(width: 200, height: 200),
+            'ban' => fake()->boolean($chanceOfGettingTrue = 5),
+        ];
     }
 
     /**
+     *
      * Indicate that the model's email address should be unverified.
      *
      * @return static
