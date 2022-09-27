@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('id_str');
             $table->string('name');
             $table->string('screen_name');
             $table->string('description');
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->string('friends_count');
             $table->string('profile_image_url');
             $table->boolean('ban')->default(0);
+            $table->string('id_str');
 
             $table->timestamps();
         });

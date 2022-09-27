@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(100)->create();
+        \App\Models\User::factory(150)->create();
 
 
         //\App\Models\User::factory()->create([
@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LeaguesTableSeeder::class,
             FootballersTableSeeder::class,
+            SeasonsTableSeeder::class,
+            MembersListsTableSeeder::class,
         ]);
     }
 }
