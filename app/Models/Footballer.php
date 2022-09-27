@@ -11,8 +11,8 @@ class Footballer extends Model
 
     protected $fillable = [
         'name',
-        'surname',
-        'number',
+        'nickname',
+        'nr',
         'position',
         'status',
 

@@ -38,8 +38,8 @@
                                     <tr>
                                         <th scope="col">lp.</th>
                                         <th scope="col">#Nr</th>
-                                        <th scope="col">Imię</th>
-                                        <th scope="col">Nazwisko</th>
+                                        <th scope="col">Imię i Nazwisko</th>
+                                        <th scope="col">Ksywka</th>
                                         <th scope="col">Pozycja</th>
                                         <th scope="col">Options</th>
                                     </tr>
@@ -51,11 +51,11 @@
                                             <td>
                                                 <h4>
                                                     <span
-                                                        class="badge badge-pill badge-primary">#{{ $footballer->number }}</span>
+                                                        class="badge badge-pill badge-primary">#{{ $footballer->nr }}</span>
                                                 </h4>
                                             </td>
                                             <td>{{ $footballer->name }}</td>
-                                            <td>{{ $footballer->surname }}</td>
+                                            <td>{{ $footballer->nickname }}</td>
                                             <td>{{ $footballer->position }}</td>
                                             <td>
                                                 <a href="" wire:click.prevent="edit({{ $footballer }})">
@@ -112,18 +112,18 @@
                         <div class="form-row">
                             <div class="col-md-2 mb-3">
                                 <label for="number">Nr</label>
-                                <input wire:model.defer="state.number" type="text"
-                                    class="form-control @error('number') is-invalid @enderror" id="number">
+                                <input wire:model.defer="state.nr" type="text"
+                                    class="form-control @error('nr') is-invalid @enderror" id="number">
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="name">Imię</label>
-                                <input wire:model.defer="state.name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" id="name">
+                                <label for="surname">Ksywka</label>
+                                <input wire:model.defer="state.nickname" type="text"
+                                    class="form-control @error('nickname') is-invalid @enderror" id="surname">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="surname">Nazwisko</label>
-                                <input wire:model.defer="state.surname" type="text"
-                                    class="form-control @error('surname') is-invalid @enderror" id="surname">
+                                <label for="name">Imię i nazwisko</label>
+                                <input wire:model.defer="state.name" type="text"
+                                    class="form-control @error('name') is-invalid @enderror" id="name">
                             </div>
                         </div>
                         <div class="form-row">

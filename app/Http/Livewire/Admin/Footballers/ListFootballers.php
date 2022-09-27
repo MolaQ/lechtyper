@@ -25,8 +25,8 @@ class ListFootballers extends AdminComponent
     {
         $data = Validator::make($this->state, [
             'name' => 'required',
-            'surname' => 'required',
-            'number' => 'integer|required',
+            'nickname' => 'required',
+            'nr' => 'integer|required',
             'position' => 'required',
             'status' => 'required',
         ])->validate();
@@ -50,8 +50,8 @@ class ListFootballers extends AdminComponent
     {
         $data = Validator::make($this->state, [
             'name' => 'required',
-            'surname' => 'required',
-            'number' => 'integer|required',
+            'nickname' => 'required',
+            'nr' => 'integer|required',
             'position' => 'required',
             'status' => 'required',
             //'email' => 'required||email|unique:users,email' . $this->user->id,
