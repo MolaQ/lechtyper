@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function __invoke(Request $request)
     {
-        abort_if(Gate::denies('admin-access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('admin-access'), Response::HTTP_FORBIDDEN, 'WSTĘP WZBRONIONY');
         return view('admin.dashboard');
     }
 }

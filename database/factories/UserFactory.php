@@ -25,7 +25,6 @@ class UserFactory extends Factory
             'followers_count' => fake()->numberBetween(100, 10000),
             'friends_count' => fake()->numberBetween(100, 10000),
             'profile_image_url' => fake()->imageUrl(width: 200, height: 200),
-            'ban' => fake()->boolean($chanceOfGettingTrue = 5),
         ];
     }
 

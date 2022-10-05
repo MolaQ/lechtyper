@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('followers_count');
             $table->string('friends_count');
             $table->string('profile_image_url');
-            $table->boolean('ban')->default(0);
             $table->string('id_str');
 
             $table->timestamps();
