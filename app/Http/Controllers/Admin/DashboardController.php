@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-public function __invoke(Request $request)
-{
-    return view('admin.dashboard');
-}
+    public function __invoke(Request $request)
+    {
+        abort_if(Gate::denies('admin-access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        return view('admin.dashboard');
+    }
 }

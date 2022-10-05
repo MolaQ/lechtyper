@@ -142,6 +142,12 @@
                                     <h2>Panel typera</h2>
                                 </div>
                                 <div class="card-body pt-0 pb-5">
+                                    @can('user-access')
+                                        <a href="" class="btn btn-primary">user-access</a>
+                                    @endcan
+                                    @can('admin-access')
+                                        <a href="" class="btn btn-primary">admin-access</a>
+                                    @endcan
 
                                 </div>
                             </div>
