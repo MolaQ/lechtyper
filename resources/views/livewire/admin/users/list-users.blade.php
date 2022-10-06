@@ -8,8 +8,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item"><a href="#">Panel administracyjny</a></li>
+                        <li class="breadcrumb-item active">Użytkownicy</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,9 +25,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
-                                <button wire:click.prevent="addNew" class="btn btn-primary">
-                                    <i class="fa fa-plus-circle mr-1"></i>
-                                    Add New User
+                                <button wire:click.prevent="addNew" class="btn btn-primary mr-1">
+                                    Wszyscy
+                                </button>
+                                <button wire:click.prevent="addNew" class="btn btn-success mr-1">
+                                    Oczekujący
+                                </button>
+                                <button wire:click.prevent="addNew" class="btn btn-warning mr-1">
+                                    Zrezygnowali
+                                </button>
+                                <button wire:click.prevent="addNew" class="btn btn-danger mr-1">
+                                    Zbanowani
                                 </button>
                             </div>
 
@@ -44,20 +52,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>
-                                            <a href="">
-                                                <i class="fa fa-edit mr-2"></i>
-                                            </a>
-                                            <a href="">
-                                                <i class="fa fa-trash text-danger"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td><img src="{{ $user->profile_image_url }}" alt="{{ $user->name }}">
+                                            </td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->screen_name }}</td>
+                                            <td>
+                                                <a href="" wire:click.prevent="edit({{ $user }})">
+                                                    <i class="fa fa-edit mr-2"></i>
+                                                </a>
+                                                <a href="">
+                                                    <i class="fa fa-trash text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             </p>
@@ -75,36 +86,63 @@
     <!-- /.content -->
 
     <!-- Modal -->
-    <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="form" role="dialog" tabindex="-1" aria-labelledby="form" aria-hidden="true"
+        wire:ignore.self>
         <div class="modal-dialog">
+
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new user</h5>
+                    <h2 class="modal-title" id="exampleModalLabel">
+                        <img src="{{ $img }}" alt="{{ $nick }}"
+                            class="img-responsive mr-2"><span>{{ $name }}</span>
+
+                    </h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Form modal -->
-                    <form>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input wire:model.defer="state.name" type="text" class="form-control"
-                                id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <form autocomplete="off" wire:submit.prevent="updateUserRole">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <div>{{ $name }}</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div>{{ $nick }}</div>
+                            </div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="position">Status użytkownika:</label>
 
-                    </form>
-                    <!-- /End form modal-->
+
+                                @foreach ($roles as $role)
+                                    <div class="form-check">
+                                        <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
+                                            value="{{ $role }}" id="flexCheckChecked"
+                                            {{ in_array($role, $userRoles) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            {{ $role }}
+                                        </label>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">
+
+                        <span>Aktualizuj</span>
+
+                    </button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
-    <!-- /.modal -->
+    <!-- Modal end -->
 
 
 </div>
