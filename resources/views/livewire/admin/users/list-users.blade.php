@@ -119,7 +119,7 @@
                                 @foreach ($roles as $role)
                                     <div class="form-check mx-5">
                                         <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
-                                            value="{{ $role }}" id="flexCheckChecked"
+                                            value="{{ $role }}" id="{{ $name }}"
                                             {{ in_array($role, $userRoles) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="flexCheckChecked">
                                             {{ $role }}
