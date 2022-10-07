@@ -13,6 +13,12 @@ class ListSeasons extends Component
         dd("addNew");
     }
 
+    public function edit(Season $season)
+    {
+        dd($season);
+    }
+
+
     public function render()
     {
         $seasons = Season::all();

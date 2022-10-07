@@ -26,10 +26,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-end">
                                 <button wire:click.prevent="addNew" class="btn btn-primary mr-1">
-                                    Lista
-                                </button>
-                                <button wire:click.prevent="addNew" class="btn btn-success mr-1">
-                                    Kalendarz
+                                    Dodaj nowy sezon
                                 </button>
                             </div>
 
