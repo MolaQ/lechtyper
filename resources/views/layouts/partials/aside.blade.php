@@ -51,7 +51,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.users') }}"
                         class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-user-tie"></i>
                         <p>
                             Użytkownicy
                         </p>
@@ -69,11 +69,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.calendar') }}"
-                        class="nav-link {{ request()->is('admin/calendar') ? 'active' : '' }}">
+                    <a href="{{ route('admin.seasons') }}"
+                        class="nav-link {{ request()->is('admin/seasons') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-calendar-alt"></i>
                         <p>
-                            Kalendarz
+                            Sezony
                         </p>
                     </a>
                 </li>
