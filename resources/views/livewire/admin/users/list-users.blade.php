@@ -55,7 +55,7 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td><img src="{{ $user->profile_image_url }}" alt="{{ $user->name }}">
+                                            <td><img src="{{ $user->profile_image_url }}" class="rounded img-fluid"  width="40" height="40" lt="{{ $user->name }}">
                                             </td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->screen_name }}</td>

@@ -151,7 +151,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zrezygnuj</button>
                     <button type="submit" class="btn btn-primary">
                         @if ($showEditModal)
                             <span>Aktualizuj</span>
