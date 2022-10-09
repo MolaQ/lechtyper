@@ -14,7 +14,7 @@ class MainBladeComponentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Blade::component('theme.app', 'theme-layout');
+        Blade::component('component.app', 'theme-layout');
     }
 
     /**

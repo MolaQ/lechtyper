@@ -6,6 +6,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Livewire\Admin\Footballers\ListFootballers;
 use App\Http\Livewire\Admin\Users\ListUsers;
 use App\Http\Livewire\Admin\Seasons\ListSeasons;
+use App\Http\Livewire\HomePage;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/', HomePage::class)->name('home');
 Route::get('/twitter', [TwitterController::class, 'connect_twitter'])->name('twitter');
 Route::get('/twitter/callback', [TwitterController::class, 'twitter_callback'])->name('twitter.callback');
 Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitter.logout');
