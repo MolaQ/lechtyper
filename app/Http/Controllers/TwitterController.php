@@ -14,9 +14,11 @@ class TwitterController extends Controller
 
         $callback = '';
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'));
+
         $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => env('OAUTH_CALLBACK')));
 
         $url = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
+
         // $content = $connection->get("account/verify_credentials");
         // dd($content);
         return redirect($url);
@@ -40,6 +42,8 @@ class TwitterController extends Controller
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'), $oauth_token, $oauth_token_secret);
         $content = $connection->get("account/verify_credentials");
 
+
+
         $user = User::firstOrNew(['id_str' => $content->id_str]);
         $user->id_str = $content->id_str;
         $user->name = $content->name;
@@ -48,9 +52,8 @@ class TwitterController extends Controller
         $user->followers_count = $content->followers_count;
         $user->friends_count = $content->friends_count;
         $user->profile_image_url = $content->profile_image_url;
-        $user->touch();
-
         $user->save();
+        $user->touch();
 
         // $timeline = $connection->get("statuses/user_timeline", ["screen_name" => "LechTYPER"]);
         // dd($timeline);
