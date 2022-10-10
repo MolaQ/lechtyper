@@ -10,9 +10,8 @@ class LastSeen extends Component
     public function render()
     {
         $users = User::orderBy('updated_at', 'DESC')
-        ->limit(5)
-        ->get();
-        dd($users);
+            ->limit(5)
+            ->get();
         return view('livewire.last-seen');
     }
 }
