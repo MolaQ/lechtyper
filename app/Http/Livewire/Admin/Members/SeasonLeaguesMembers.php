@@ -32,7 +32,7 @@ class SeasonLeaguesMembers extends Component
     {
         $ids = League::all()->map->only('id', 'short');
 
-        $this->members = MembersList::with('user')
+        $this->members = MembersList::with('season','user','league')
             ->where('season_id', $this->season)
             ->where('league_id', $this->league)
             ->get();

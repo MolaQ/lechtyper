@@ -24,4 +24,8 @@ class MembersList extends Model
     {
         return $this->belongsTo(League::class);
     }
+    public function season()
+    {
+        return $this->belongsTo(Season::class);
+    }
 }

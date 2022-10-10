@@ -65,18 +65,18 @@
                                             @isset($member->user_id)
                                                 @foreach($member->user->roles as $role)
                                                 @if($role->title=="banned")
-                                                <button class="btn-danger">B</button>
+                                                <span class="badge rounded-pill bg-danger">B</span>
 
                                                 @elseif($role->title=="retired")
-                                                <button class="btn-warning">R</button>
+                                                <span class="badge rounded-pill bg-warning">R</span>
                                                 @elseif($role->title=="vip")
-                                                <button class="btn-info">V</button>
+                                                <span class="badge rounded-pill bg-info">V</span>
                                                 @elseif($role->title=="pending")
-                                                <button class="btn-light">P</button>
+                                                <span class="badge rounded-pill bg-secondary">P</span>
                                                 @elseif($role->title=="admin")
-                                                <button class="btn-dark">A</button>
+                                                <span class="badge rounded-pill bg-dark">A</span>
                                                 @else
-                                                <button class="btn-primary">U</button>
+                                                <span class="badge rounded-pill bg-primary">B</span>
                                                 @endif
 
                                                 @endforeach
