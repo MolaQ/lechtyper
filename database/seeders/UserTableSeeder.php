@@ -35,12 +35,3 @@ class UserTableSeeder extends Seeder
         ]);
     }
 }
-
-// $table->string('name');
-// $table->string('screen_name');
-// $table->string('description');
-// $table->string('followers_count');
-// $table->string('friends_count');
-// $table->string('profile_image_url');
-// $table->boolean('ban')->default(0);
-// $table->string('id_str');

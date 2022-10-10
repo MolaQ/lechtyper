@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('members_lists', function (Blueprint $table) {
             $table->id();
             $table->integer('nr');
-            $table->unsignedBigInteger('season_id');
-            $table->unsignedBigInteger('league_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('season_id')->nullable();
+            $table->unsignedBigInteger('league_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->foreign('season_id')->references('id')->on('seasons');
             $table->foreign('league_id')->references('id')->on('leagues');

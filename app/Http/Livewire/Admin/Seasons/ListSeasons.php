@@ -10,6 +10,7 @@ class ListSeasons extends Component
 {
     public $state = [];
     public $showEditModal = false;
+    public $showEditMemberModal = false;
     public $season;
 
     public function addNew()

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\TwitterController;
 use App\Http\Livewire\Admin\Footballers\ListFootballers;
+use App\Http\Livewire\Admin\Members\SeasonLeaguesMembers;
 use App\Http\Livewire\Admin\Users\ListUsers;
 use App\Http\Livewire\Admin\Seasons\ListSeasons;
 use App\Http\Livewire\HomePage;
@@ -31,3 +32,4 @@ Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboar
 Route::get('/admin/users', ListUsers::class)->name('admin.users');
 Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
 Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');
+Route::get('/admin/members', SeasonLeaguesMembers::class)->name('admin.members');

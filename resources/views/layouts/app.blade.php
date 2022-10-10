@@ -71,6 +71,10 @@
                 $('#form').modal('hide');
                 toastr.success(event.detail.message, 'Operacja wykonana!');
             })
+            window.addEventListener('hide-form2', event => {
+                $('#form2').modal('hide');
+                toastr.success(event.detail.message, 'Operacja wykonana!');
+            })
 
             window.addEventListener('hide-delete-modal', event => {
                 $('#delete-modal').modal('hide');
@@ -82,6 +86,9 @@
     <script>
         window.addEventListener('show-form', event => {
             $('#form').modal('show');
+        })
+        window.addEventListener('show-form2', event => {
+            $('#form2').modal('show');
         })
         window.addEventListener('show-delete-modal', event => {
             $('#delete-modal').modal('show');

@@ -12,5 +12,6 @@ class League extends Model
     protected $fillable = [
         'nr',
         'name',
+        'short',
     ];
 }

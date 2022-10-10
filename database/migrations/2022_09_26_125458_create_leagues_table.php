@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nr');
             $table->string('name');
+            $table->string('short');
             $table->timestamps();
         });
     }

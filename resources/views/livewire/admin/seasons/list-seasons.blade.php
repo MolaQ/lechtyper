@@ -79,7 +79,7 @@
     </div>
     <!-- /.content -->
 
-    <!-- Modal -->
+    <!-- Modal form-->
     <div class="modal fade" id="form" role="dialog" tabindex="-1" aria-labelledby="form" aria-hidden="true"
         wire:ignore.self>
         <div class="modal-dialog">
@@ -101,12 +101,12 @@
                     <form autocomplete="off"
                         wire:submit.prevent="{{ $showEditModal ? 'updateSeason' : 'createSeason' }}">
                         <div class="form-row">
-                            <div class="col-md-2 mb-3">
+                            <div class="col-md-3 mb-3">
                                 <label for="number">Nr</label>
                                 <input wire:model.defer="state.nr" type="text"
                                     class="form-control @error('nr') is-invalid @enderror" id="number">
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-9 mb-3">
                                 <label for="surname">Nazwa</label>
                                 <input wire:model.defer="state.name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" id="surname">
