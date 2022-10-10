@@ -17,8 +17,9 @@ class RolesTableSeeder extends Seeder
     {
         Role::create(['title' => 'pending',]);
         Role::create(['title' => 'user',]);
-        Role::create(['title' => 'retired',]);
-        Role::create(['title' => 'ban',]);
+        Role::create(['title' => 'vip',]);
         Role::create(['title' => 'admin',]);
+        Role::create(['title' => 'retired',]);
+        Role::create(['title' => 'banned',]);
     }
 }

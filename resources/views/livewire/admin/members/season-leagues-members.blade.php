@@ -42,13 +42,14 @@
                                         <th scope="col">lp.</th>
                                         <th scope="col">#Nr</th>
                                         <th scope="col">Nazwa</th>
+                                        <th scope="col">Role</th>
                                         <th scope="col">Akcje</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($members as $member)
                                         <tr>
-                                            <th scope="row">{{ $member->nr }}</th>
+                                            <th scope="row">{{ $loop->iteration }}</th>
                                             <td>
                                                 <div>
                                                     {{ $member->league->name }}
@@ -57,39 +58,63 @@
                                             <td>
                                                 @if (isset($member->user->name))
                                                     {{ $member->user->name }}
+                                                @endisset
+
+                                        </td>
+                                        <td>
+                                            @isset($member->user_id)
+                                                @foreach($member->user->roles as $role)
+                                                @if($role->title=="banned")
+                                                <button class="btn-danger">B</button>
+
+                                                @elseif($role->title=="retired")
+                                                <button class="btn-warning">R</button>
+                                                @elseif($role->title=="vip")
+                                                <button class="btn-info">V</button>
+                                                @elseif($role->title=="pending")
+                                                <button class="btn-light">P</button>
+                                                @elseif($role->title=="admin")
+                                                <button class="btn-dark">A</button>
+                                                @else
+                                                <button class="btn-primary">U</button>
                                                 @endif
-                                                @foreach ($member->user->roles as $r)
-                                                    @if ($r->title == 'ban')
-                                                        <button class="btn-danger mr-1">ban</button>
-                                                    @endif
+
                                                 @endforeach
-                                            </td>
-                                            <td>
-                                                <a href=""
-                                                    wire:click.prevent="removeFromLeague({{ $member }})">
-                                                    <i class="fa fa-edit mr-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            </p>
+                                            @endisset
+                                        </td>
+                                        <td>
+                                            @isset($member->user_id)
+                                            <a href=""
+                                                wire:click.prevent="removeFromLeague({{ $member }})">
+                                                <i class="fa fas fa-user-minus text-danger"></i>
+                                            </a>
+                                            @else
+                                            <a href=""
+                                                wire:click.prevent="addToLeague({{ $member }})">
+                                                <i class="fa fas fa-user-plus text-success"></i>
+                                            </a>
+                                            @endisset
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        </p>
 
-
-                        </div>
 
                     </div>
-                    <div class="card-footer d-flex justify-content-end">
+
+                </div>
+                <div class="card-footer d-flex justify-content-end">
 
 
-                    </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
 
 </div>
 </div>
