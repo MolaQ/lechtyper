@@ -19,7 +19,7 @@
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    data-bs-toggle="dropdown" aria-expanded="false"><img src="{{ Auth::user()->profile_image_url }}" alt="{{ Auth::user()->name }}" class="rounded-pill"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#!">Wyślij tweet'a</a></li>
                     <li><a class="dropdown-item" href="#!">Rezygnacja</a></li>
@@ -35,9 +35,19 @@
             </li>
         </ul>
     @else
-        <a class="btn btn-success sidenav-item-link" href="{{ route('twitter') }}">
-            <i class="fa-solid fa-power-off mx-1"></i>
-        </a>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item">
+                <ul>
+                    <li>
+                        <a class="btn btn-success sidenav-item-link" href="{{ route('twitter') }}">
+                            <i class="fa-solid fa-power-off mx-1"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+        </ul>
+
     @endauth
 
 </nav>
