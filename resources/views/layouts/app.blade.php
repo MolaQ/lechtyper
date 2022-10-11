@@ -1,62 +1,55 @@
 <!DOCTYPE html>
-<html lang="pl-PL">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
-    <!-- Toastr style -->
-    <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
-
-    <livewire:styles />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>#LechTYPER | Admin Panel</title>
+    <link href="{{ asset('backend/css/styles.css') }}" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    @livewireStyles
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
+<body class="sb-nav-fixed">
+    @include('layouts.partials.nav')
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    @include('layouts.partials.sidebar')
+                </div>
 
-        <!-- Navbar -->
-        @include('layouts.partials.navbar')
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-        @include('layouts.partials.aside')
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            {{ $slot }}
+                {{-- TWITTER LOGOUT --}}
+                <div>
+                    <div class="d-grid gap-2 mx-2">
+                        <a class="btn btn-danger" href="{{ route('twitter.logout') }}">
+                            <i class="fa-solid fa-power-off"></i>
+                            <span class="nav-text">WYLOGUJ</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <!-- /.content-wrapper -->
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4 py-3">
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
+                    <div class="row">
+                        {{ $slot }}
+                    </div>
 
-        <!-- Main Footer -->
-        @include('layouts.partials.footer')
+
+                </div>
+            </main>
+            @include('layouts.partials.footer')
+        </div>
     </div>
-    <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('backend/js/scripts.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 
@@ -94,8 +87,7 @@
             $('#delete-modal').modal('show');
         })
     </script>
-
-    <livewire:scripts />
+    @livewireScripts
 </body>
 
 </html>

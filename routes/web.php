@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\TwitterController;
+use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Footballers\ListFootballers;
 use App\Http\Livewire\Admin\Members\SeasonLeaguesMembers;
 use App\Http\Livewire\Admin\Users\ListUsers;
@@ -28,7 +29,7 @@ Route::get('/twitter', [TwitterController::class, 'connect_twitter'])->name('twi
 Route::get('/twitter/callback', [TwitterController::class, 'twitter_callback'])->name('twitter.callback');
 Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitter.logout');
 
-Route::get('/admin/dashboard', DashboardController::class)->name('admin.dashboard');
+Route::get('/admin/', Dashboard::class)->name('admin.dashboard');
 Route::get('/admin/users', ListUsers::class)->name('admin.users');
 Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
 Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');

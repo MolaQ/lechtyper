@@ -63,36 +63,33 @@
                                         </td>
                                         <td>
                                             @isset($member->user_id)
-                                                @foreach($member->user->roles as $role)
-                                                @if($role->title=="banned")
-                                                <span class="badge rounded-pill bg-danger">B</span>
-
-                                                @elseif($role->title=="retired")
-                                                <span class="badge rounded-pill bg-warning">R</span>
-                                                @elseif($role->title=="vip")
-                                                <span class="badge rounded-pill bg-info">V</span>
-                                                @elseif($role->title=="pending")
-                                                <span class="badge rounded-pill bg-secondary">P</span>
-                                                @elseif($role->title=="admin")
-                                                <span class="badge rounded-pill bg-dark">A</span>
-                                                @else
-                                                <span class="badge rounded-pill bg-primary">B</span>
-                                                @endif
-
+                                                @foreach ($member->user->roles as $role)
+                                                    @if ($role->title == 'banned')
+                                                        <span class="badge rounded-pill bg-danger">B</span>
+                                                    @elseif($role->title == 'retired')
+                                                        <span class="badge rounded-pill bg-warning">R</span>
+                                                    @elseif($role->title == 'vip')
+                                                        <span class="badge rounded-pill bg-info">V</span>
+                                                    @elseif($role->title == 'pending')
+                                                        <span class="badge rounded-pill bg-secondary">P</span>
+                                                    @elseif($role->title == 'admin')
+                                                        <span class="badge rounded-pill bg-dark">A</span>
+                                                    @else
+                                                        <span class="badge rounded-pill bg-primary">U</span>
+                                                    @endif
                                                 @endforeach
                                             @endisset
                                         </td>
                                         <td>
                                             @isset($member->user_id)
-                                            <a href=""
-                                                wire:click.prevent="removeFromLeague({{ $member }})">
-                                                <i class="fa fas fa-user-minus text-danger"></i>
-                                            </a>
+                                                <a href=""
+                                                    wire:click.prevent="removeFromLeague({{ $member }})">
+                                                    <i class="fa fas fa-user-minus text-danger"></i>
+                                                </a>
                                             @else
-                                            <a href=""
-                                                wire:click.prevent="addToLeague({{ $member }})">
-                                                <i class="fa fas fa-user-plus text-success"></i>
-                                            </a>
+                                                <a href="" wire:click.prevent="addToLeague({{ $member }})">
+                                                    <i class="fa fas fa-user-plus text-success"></i>
+                                                </a>
                                             @endisset
                                         </td>
                                     </tr>

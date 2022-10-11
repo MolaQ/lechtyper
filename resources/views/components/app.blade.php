@@ -34,7 +34,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
+                <div class="container-fluid px-4 py-3">
                     <div class="row">
                         {{ $content }}
                     </div>

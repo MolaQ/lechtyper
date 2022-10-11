@@ -18,6 +18,7 @@ class ListUsers extends Component
     public $a;
     public $userRoles = [];
     public $roles = [];
+    public $showEditModal = false;
 
     public function edit(User $user)
     {
