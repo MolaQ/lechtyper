@@ -31,10 +31,7 @@
                                 <td>{{ $user->screen_name }}</td>
                                 <td>
                                     <a href="" wire:click.prevent="edit({{ $user }})">
-                                        <i class="fa fa-edit mr-2"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-trash text-danger"></i>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -46,66 +43,50 @@
         </div>
 
     </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form">
+    Launch demo modal
+  </button>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="form" role="dialog" tabindex="-1" aria-labelledby="form" aria-hidden="true"
-        wire:ignore.self>
-        <div class="modal-dialog">
+<div wire:ignore.self class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title"><img src="{{ $img }}" alt="{{ $nick }}" class="rounded-pill mx-2">{{ $name }}({{ $nick }})</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" wire:submit.prevent="updateUserRole">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="position">Status użytkownika:</label>
 
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">
-                        <img src="{{ $img }}" alt="{{ $nick }}"
-                            class="img-responsive mr-2"><span>{{ $name }}</span>
 
-                    </h2>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form autocomplete="off" wire:submit.prevent="updateUserRole">
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <div>{{ $name }}</div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div>{{ $nick }}</div>
-                            </div>
+                    @foreach ($roles as $role)
+                        <div class="form-check mx-5">
+                            <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
+                                value="{{ $role }}" id="{{ $name }}"
+                                {{ in_array($role, $userRoles) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                {{ $role }}
+                            </label>
                         </div>
-                        <div class="form-row">
-                            <div class="col-md-12 mb-3">
-                                <label for="position">Status użytkownika:</label>
+                    @endforeach
 
-
-                                @foreach ($roles as $role)
-                                    <div class="form-check mx-5">
-                                        <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
-                                            value="{{ $role }}" id="{{ $name }}"
-                                            {{ in_array($role, $userRoles) ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            {{ $role }}
-                                        </label>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zrezygnuj</button>
-                    <button type="submit" class="btn btn-primary">
-
-                        <span>Aktualizuj</span>
-
-                    </button>
                 </div>
             </div>
-            </form>
-        </div>
     </div>
-    <!-- Modal end -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
+        <button type="submit" class="btn btn-primary">
 
+            <span>Aktualizuj</span>
+
+        </button>
+    </div>
+    </div>
+  </div>
+</div>
 
 </div>

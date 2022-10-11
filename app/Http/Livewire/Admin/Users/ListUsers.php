@@ -15,14 +15,12 @@ class ListUsers extends Component
     public $name;
     public $nick;
     public $img;
-    public $a;
     public $userRoles = [];
     public $roles = [];
     public $showEditModal = false;
 
     public function edit(User $user)
     {
-
         $this->showEditModal = true;
         $this->editUser = $user;
         $this->name = $user->name;
@@ -36,7 +34,6 @@ class ListUsers extends Component
         }
         $this->userRoles = $roles;
         $this->state = $user->toArray();
-
         $this->dispatchBrowserEvent('show-form');
     }
 
