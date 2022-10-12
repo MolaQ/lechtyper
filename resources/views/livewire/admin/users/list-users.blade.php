@@ -6,48 +6,34 @@
     </nav>
 
     <!-- Main content -->
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Awatar</th>
-                            <th scope="col">Imię i nazwisko</th>
-                            <th scope="col">Nazwa</th>
-                            <th scope="col">Opcje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <th scope="row">1</th>
-                                <td><img src="{{ $user->profile_image_url }}" class="rounded img-fluid" width="40"
-                                        height="40" lt="{{ $user->name }}">
-                                </td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->screen_name }}</td>
-                                <td>
-                                    <a href="" wire:click.prevent="edit({{ $user }})">
-                                        <i class="fa-solid fa-magnifying-glass"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                </p>
-            </div>
-        </div>
-
-    </div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form">
-        Launch demo modal
-    </button>
-
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Awatar</th>
+                <th scope="col">Imię i nazwisko</th>
+                <th scope="col">Nazwa</th>
+                <th scope="col">Opcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td><img src="{{ $user->profile_image_url }}" class="rounded img-fluid" width="40"
+                            height="40" lt="{{ $user->name }}">
+                    </td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->screen_name }}</td>
+                    <td>
+                        <a href="" wire:click.prevent="edit({{ $user }})">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
     <div wire:ignore.self class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -75,7 +61,6 @@
                                         </label>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
                 </div>
@@ -91,17 +76,6 @@
         </div>
     </div>
 
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            Hello, world! This is a toast message.
-        </div>
-    </div>
 
 
 </div>
