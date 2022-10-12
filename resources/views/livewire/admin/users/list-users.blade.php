@@ -43,50 +43,65 @@
         </div>
 
     </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form">
-    Launch demo modal
-  </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form">
+        Launch demo modal
+    </button>
 
 
-<div wire:ignore.self class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title"><img src="{{ $img }}" alt="{{ $nick }}" class="rounded-pill mx-2">{{ $name }}({{ $nick }})</div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form autocomplete="off" wire:submit.prevent="updateUserRole">
-            <div class="form-row">
-                <div class="col-md-12 mb-3">
-                    <label for="position">Status użytkownika:</label>
+    <div wire:ignore.self class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title"><img src="{{ $img }}" alt="{{ $nick }}"
+                            class="rounded-pill mx-2">{{ $name }}({{ $nick }})</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" wire:submit.prevent="updateUserRole">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="position">Status użytkownika:</label>
 
 
-                    @foreach ($roles as $role)
-                        <div class="form-check mx-5">
-                            <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
-                                value="{{ $role }}" id="{{ $name }}"
-                                {{ in_array($role, $userRoles) ? 'checked' : '' }}>
-                            <label class="form-check-label" for="flexCheckChecked">
-                                {{ $role }}
-                            </label>
+                                @foreach ($roles as $role)
+                                    <div class="form-check mx-5">
+                                        <input wire:model.defer="userRoles" class="form-check-input" type="checkbox"
+                                            value="{{ $role }}" id="{{ $name }}"
+                                            {{ in_array($role, $userRoles) ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            {{ $role }}
+                                        </label>
+                                    </div>
+                                @endforeach
+
+                            </div>
                         </div>
-                    @endforeach
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
+                    <button type="submit" class="btn btn-primary">
 
+                        <span>Aktualizuj</span>
+
+                    </button>
                 </div>
             </div>
+        </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
-        <button type="submit" class="btn btn-primary">
 
-            <span>Aktualizuj</span>
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
 
-        </button>
-    </div>
-    </div>
-  </div>
-</div>
 
 </div>

@@ -11,8 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{ asset('backend/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Toastr style -->
-        <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+    <!-- Toastr style -->
+    <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
 
     <livewire:styles />
 </head>
@@ -66,7 +66,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="{{ asset('backend/js/datatables-simple-demo.js') }}"></script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 
     <script>
@@ -76,8 +76,10 @@
                 "positionClass": "toast-bottom-right"
             }
 
-
-
+            window.addEventListener('hide-form', event => {
+                $('#form').modal('hide');
+                toastr.success(event.detail.message, 'Operacja wykonana!');
+            })
             window.addEventListener('hide-form2', event => {
                 $('#form2').modal('hide');
                 toastr.success(event.detail.message, 'Operacja wykonana!');
@@ -90,22 +92,10 @@
 
         });
     </script>
-
-
     <script>
         window.addEventListener('show-form', event => {
-            var myModal = new bootstrap.Modal(document.getElementById('form'), {})
-            myModal.show()
+            $('#form').modal('show');
         })
-
-
-        window.addEventListener('hide-form', function(event) {
-            var myModalEl = document.getElementById('form')
-            var modal = bootstrap.Modal.getInstance(myModalEl)
-            modal.hide()
-            toastr.success(event.detail.message, 'Operacja wykonana!');
-        })
-
         window.addEventListener('show-form2', event => {
             $('#form2').modal('show');
         })
