@@ -1,82 +1,62 @@
 <div>
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">SEZONY</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Panel administracyjny</a></li>
-                        <li class="breadcrumb-item active">Sezony</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Sezony</li>
+        </ol>
+    </nav>
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-end">
-                                <button wire:click.prevent="addNew" class="btn btn-primary">
-                                    <i class="fa fa-plus-circle mr-1"></i> Dodaj nowy sezon
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <button wire:click.prevent="addNew" class="btn btn-primary">
+                    <i class="fa fa-plus-circle mr-1"></i> Dodaj nowy sezon
 
-                                </button>
-                            </div>
-
-
-                            <p class="card-text">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">lp.</th>
-                                        <th scope="col">#Nr</th>
-                                        <th scope="col">Nazwa</th>
-                                        <th scope="col">Akcje</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($seasons as $season)
-                                        <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>
-                                                <h4>
-                                                    <span
-                                                        class="badge badge-pill badge-primary">#{{ $season->nr }}</span>
-                                                </h4>
-                                            </td>
-                                            <td>{{ $season->name }}</td>
-                                            <td>
-                                                <a href="" wire:click.prevent="edit({{ $season }})">
-                                                    <i class="fa fa-edit mr-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            </p>
-
-
-                        </div>
-
-                    </div>
-                    <div class="card-footer d-flex justify-content-end">
-
-
-                    </div>
-                </div>
+                </button>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+
+
+            <p class="card-text">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">lp.</th>
+                        <th scope="col">#Nr</th>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($seasons as $season)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>
+                                <h4>
+                                    <span class="badge badge-pill badge-primary">#{{ $season->nr }}</span>
+                                </h4>
+                            </td>
+                            <td>{{ $season->name }}</td>
+                            <td>
+                                <a href="" wire:click.prevent="edit({{ $season }})">
+                                    <i class="fa fa-edit mr-2"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            </p>
+
+
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+
+
+        </div>
     </div>
+
     <!-- /.content -->
 
     <!-- Modal form-->
