@@ -61,10 +61,12 @@
 
 
 
-
+    {{-- Paginate links --}}
     <div class="d-flex justify-content-end">
         {{ $footballers->links() }}
     </div>
+    {{-- End paginate links --}}
+
     <!-- /.content -->
 
 
