@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TwitterController extends Controller
 {
@@ -52,6 +53,12 @@ class TwitterController extends Controller
         $user->followers_count = $content->followers_count;
         $user->friends_count = $content->friends_count;
         $user->profile_image_url = $content->profile_image_url;
+
+
+        $fileContent = file_get_contents($content->profile_image_url);
+        $name = $content->id_str .'.png';
+        Storage::disk('public')->put($name, $fileContent);
+        $user->profile_image_url = 'storage/' . $name;
         $user->save();
         $user->touch();
 
