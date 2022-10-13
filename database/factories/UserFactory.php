@@ -19,8 +19,8 @@ class UserFactory extends Factory
     {
         return [
             'id_str' => fake()->text(),
-            'name' => fake()->firstName(),
-            'screen_name' => fake()->name(),
+            'name' => fake()->name(),
+            'screen_name' => fake()->firstname(),
             'description' => fake()->words($nb = 5, $asText = true),
             'followers_count' => fake()->numberBetween(100, 10000),
             'friends_count' => fake()->numberBetween(100, 10000),

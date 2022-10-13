@@ -25,8 +25,8 @@ class UserTableSeeder extends Seeder
             'id_str' => '931975002',
         ]);
         User::create([
-            'name' => '#lechtyper',
-            'screen_name' => 'LechTYPER',
+            'name' => 'LechTYPER',
+            'screen_name' => '#lechtyper',
             'description' => 'Typer Sympatyków Kolejorza #Lech #Poznań #SzukamPracy :)',
             'followers_count' => '8',
             'friends_count' => '9',

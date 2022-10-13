@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admin\Members;
 
 use App\Models\League;
 use App\Models\MembersList;
-use App\Models\User;
 use Livewire\Component;
 
 class SeasonLeaguesMembers extends Component
