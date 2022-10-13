@@ -29,8 +29,10 @@ Route::get('/twitter', [TwitterController::class, 'connect_twitter'])->name('twi
 Route::get('/twitter/callback', [TwitterController::class, 'twitter_callback'])->name('twitter.callback');
 Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitter.logout');
 
-Route::get('/admin/', Dashboard::class)->name('admin.dashboard');
-Route::get('/admin/users', ListUsers::class)->name('admin.users');
-Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
-Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');
-Route::get('/admin/members', SeasonLeaguesMembers::class)->name('admin.members');
+Route::middleware('can:admin-access')->group(function () {
+    Route::get('/admin', Dashboard::class)->name('admin.dashboard');
+    Route::get('/admin/users', ListUsers::class)->name('admin.users');
+    Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
+    Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');
+    Route::get('/admin/members', SeasonLeaguesMembers::class)->name('admin.members');
+});
