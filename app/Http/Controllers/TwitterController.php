@@ -58,7 +58,9 @@ class TwitterController extends Controller
         $fileContent = file_get_contents($content->profile_image_url);
         $name = $content->id_str .'.png';
         Storage::disk('public')->put($name, $fileContent);
-        $user->profile_image_url = 'storage/' . $name;
+        // ŚCXIEŻKA LOKALNA DO PLIKU
+        //$user->profile_image_url = 'storage/' . $name;
+        $user->profile_image_url = $content->profile_image_url;
         $user->save();
         $user->touch();
 
