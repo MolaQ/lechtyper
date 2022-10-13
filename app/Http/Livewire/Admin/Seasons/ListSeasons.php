@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Admin\Seasons;
 
 use App\Models\Season;
 use Illuminate\Support\Facades\Validator;
-use Livewire\Component;
+use App\Http\Livewire\Admin\AdminComponent;
 
-class ListSeasons extends Component
+class ListSeasons extends AdminComponent
 {
     public $state = [];
     public $showEditModal = false;
@@ -62,7 +62,7 @@ class ListSeasons extends Component
 
     public function render()
     {
-        $seasons = Season::all();
+        $seasons = Season::paginate(10);
         return view('livewire.admin.seasons.list-seasons', [
             'seasons' => $seasons,
         ]);

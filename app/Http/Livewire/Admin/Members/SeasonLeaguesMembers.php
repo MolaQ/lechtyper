@@ -10,7 +10,6 @@ use Livewire\Component;
 class SeasonLeaguesMembers extends Component
 {
     public $members = [];
-    public $search = "M";
     public $league = 1;
     public $season = 1;
 
@@ -32,9 +31,10 @@ class SeasonLeaguesMembers extends Component
     {
         $ids = League::all()->map->only('id', 'short');
 
-        $this->members = MembersList::with('season','user','league')
+        $this->members = MembersList::with('season', 'user', 'league')
             ->where('season_id', $this->season)
             ->where('league_id', $this->league)
+            ->orderBy('user_id', 'DESC')
             ->get();
 
         //dd($this->members);
