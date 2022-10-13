@@ -80,7 +80,7 @@ class ListFootballers extends AdminComponent
     }
     public function render()
     {
-        $footballers = Footballer::latest()->paginate(10);
+        $footballers = Footballer::paginate(10);
         return view('livewire.admin.footballers.list-footballers', [
             'footballers' => $footballers,
         ]);
