@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bet_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('competition_id');
             $table->unsignedBigInteger('footballer_id');
             $table->integer('time');
             $table->integer('goals');
