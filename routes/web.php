@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\TwitterController;
+use App\Http\Livewire\Admin\BetEvents\EventsList;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Footballers\ListFootballers;
 use App\Http\Livewire\Admin\Members\SeasonLeaguesMembers;
@@ -35,4 +36,5 @@ Route::middleware('can:admin-access')->group(function () {
     Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
     Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');
     Route::get('/admin/members', SeasonLeaguesMembers::class)->name('admin.members');
+    Route::get('/admin/betevents', EventsList::class)->name('admin.betevents');
 });

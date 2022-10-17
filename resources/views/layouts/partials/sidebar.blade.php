@@ -16,6 +16,11 @@
         Sezony
     </a>
 
+    <a class="nav-link" href="{{ asset('admin/betevents') }}">
+        <div class="sb-nav-link-icon"><i class="fa-solid fa-calendar-days mx-2"></i></div>
+        Mecze
+    </a>
+
     <a class="nav-link" href="{{ asset('admin/members') }}">
         <div class="sb-nav-link-icon"><i class="fa-brands fa-black-tie mx-2"></i></div>
         Gracze
