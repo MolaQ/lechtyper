@@ -52,5 +52,73 @@
         </table>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        wire:ignore.self>
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        @if ($showEditModal)
+                            <span>Edytuj dane spotkania</span>
+                        @else
+                            <span>Dodaj nowe spotkanie</span>
+                        @endif
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" autocomplete="off"
+                        wire:submit.prevent="{{ $showEditModal ? 'updateBetEvent' : 'createBetEvent' }}">
+
+                        <div class="col-md-4">
+                            <label for="number">Spotkanie</label>
+                            <input wire:model.defer="state.name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" id="name">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="hashtag">#hashtag</label>
+                            <input wire:model.defer="state.hashtag" type="text"
+                                class="form-control @error('hashtag') is-invalid @enderror" id="hashtag">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="datetime">Data i godzina</label>
+                            <input wire:model.defer="state.datetime" type="text"
+                                class="form-control @error('datetime') is-invalid @enderror" id="datetime">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="homescore">Gospod.</label>
+                            <input wire:model.defer="state.homescore" type="text"
+                                class="form-control @error('homescore') is-invalid @enderror" id="homescore">
+                        </div>
+                        <div class="col-md-1">
+                            <label for="awayscore">Goście</label>
+                            <input wire:model.defer="state.awayscore" type="text"
+                                class="form-control @error('awayscore') is-invalid @enderror" id="awayscore">
+                        </div>
+
+                        <div class="col-12">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
+                            <button type="submit" class="btn btn-primary">
+                                @if ($showEditModal)
+                                    <span>Aktualizuj</span>
+                                @else
+                                    <span>Dodaj</span>
+                                @endif
+
+                            </button>
+                        </div>
+                    </form>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
 
 </div>

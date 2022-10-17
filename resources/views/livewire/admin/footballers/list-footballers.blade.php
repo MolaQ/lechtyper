@@ -25,7 +25,7 @@
                     <th scope="col">Imię i Nazwisko</th>
                     <th scope="col">Ksywka</th>
                     <th scope="col">Pozycja</th>
-                    <th scope="col">Alcje</th>
+                    <th scope="col">Akcje</th>
                 </tr>
             </thead>
             <tbody>

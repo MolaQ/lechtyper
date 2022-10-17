@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class BetEvent extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'hashtag',
+        'datetime',
+        'homescore',
+        'awayscore',
+    ];
 }
