@@ -14,6 +14,8 @@
     <!-- Toastr style -->
     <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
 
+    {{-- Datetime picker --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
     <livewire:styles />
 </head>
 
@@ -69,6 +71,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
 
+    {{-- DATETIME PICKER --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+           $('#datetimepicker').datetimepicker();
+        });
+    </script>
     <script>
         $(document).ready(function() {
             toastr.options = {

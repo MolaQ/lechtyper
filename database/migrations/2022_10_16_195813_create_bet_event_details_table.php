@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('betevent_id');
             $table->unsignedBigInteger('footballer_id');
-            $table->integer('time');
-            $table->integer('goals');
-            $table->integer('assists');
-            $table->integer('yellowcards');
-            $table->integer('redcards');
+            $table->integer('time')->nullable();
+            $table->integer('goals')->nullable();
+            $table->integer('assists')->nullable();
+            $table->integer('yellowcards')->nullable();
+            $table->integer('redcards')->nullable();
             $table->timestamps();
+            $table->foreign('betevent_id')->references('id')->on('bet_events');
+            $table->foreign('footballer_id')->references('id')->on('footballers');
         });
     }
 

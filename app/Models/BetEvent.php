@@ -15,4 +15,9 @@ class BetEvent extends Model
         'homescore',
         'awayscore',
     ];
+
+    public function betEventDetails()
+    {
+        return $this->hasMany(BetEventDetail::class);
+    }
 }

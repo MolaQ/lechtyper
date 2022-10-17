@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('hashtag');
             $table->datetime('datetime');
-            $table->integer('homescore');
-            $table->integer('awayscore');
+            $table->integer('homescore')->nullable();
+            $table->integer('awayscore')->nullable();
             $table->timestamps();
         });
     }
