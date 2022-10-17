@@ -20,5 +20,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['id' => 3, 'title' => 'retired-access',]);
         Permission::create(['id' => 4, 'title' => 'pending-access',]);
         Permission::create(['id' => 5, 'title' => 'admin-access',]);
+        Permission::create(['id' => 6, 'title' => 'vip-access',]);
+        Permission::create(['id' => 7, 'title' => 'ban-access',]);
     }
 }

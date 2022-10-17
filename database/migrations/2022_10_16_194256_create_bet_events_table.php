@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('bet_events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('hashtag');
             $table->datetime('datetime');
             $table->integer('homescore');
             $table->integer('awayscore');
