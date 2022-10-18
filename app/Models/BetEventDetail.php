@@ -17,7 +17,7 @@ class BetEventDetail extends Model
         'yellowcards',
         'redcards',
     ];
-    public function betEvent()
+    public function betevent()
     {
         return $this->belongsTo(BetEvent::class);
     }
@@ -25,5 +25,4 @@ class BetEventDetail extends Model
     {
         return $this->belongsTo(Footballer::class);
     }
-
 }

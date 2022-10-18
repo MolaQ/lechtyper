@@ -127,22 +127,32 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        <span>Szczegóły spotkania</span>
+                        <span>Szczegóły spotkania:
+                            {{ isset($betEvent->name) ? $betEvent->name . ' [' . $betEvent->datetime . ']' : '' }}</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3" autocomplete="off" wire:submit.prevent="{{ 'updateBetEventDetails' }}">
 
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <label for="number">Spotkanie</label>
                             <input wire:model.defer="state.name" type="text"
                                 class="form-control @error('name') is-invalid @enderror" id="name">
-                        </div>
+                        </div> --}}
+
                         <div>
                             @foreach ($betEventDetails as $betEventDetail)
-                                <p>{{ $betEventDetail->footballer->name }}</p>
+                                <p><small>{{ $betEventDetail['footballer']['name'] }}</small>
+                                    <input type="hiiden" wire:model.defer="state.{{ $betEventDetail['id'] }}"
+                                        disabled>
+
+                                    <input
+                                        wire:model.defer="state.{{ $betEventDetail['id'] }} . yellow . {{ $betEventDetail['yellowcards'] }}"
+                                        type="text">
+                                </p>
                             @endforeach
+
 
 
                         </div>

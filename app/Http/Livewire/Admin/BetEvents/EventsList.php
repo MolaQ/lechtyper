@@ -15,6 +15,7 @@ class EventsList extends Component
     public $betEventDetails = [];
     public $form2 = [];
     public $showEditModal = false;
+    public $showForm2 = false;
 
 
     public function addNew()
@@ -35,13 +36,14 @@ class EventsList extends Component
 
     public function addBetDetails(BetEvent $betEvent)
     {
+        $this->betEvent = $betEvent;
         $activeFootballers = Footballer::where('status', 'active')->pluck('id')->toArray();
         foreach ($activeFootballers as $activeFootballer) {
             BetEventDetail::updateOrCreate(
                 ['betevent_id' => $betEvent->id, 'footballer_id' => $activeFootballer]
             );
         }
-        $this->betEventDetails = BetEventDetail::with('betEvent', 'footballer')->where('betevent_id', $betEvent->id)->whereIn('footballer_id', $activeFootballers)->get();
+        $this->betEventDetails = BetEventDetail::with('betevent', 'footballer')->where('betevent_id', $betEvent->id)->whereIn('footballer_id', $activeFootballers)->get();
         $this->dispatchBrowserEvent('show-form2', ['message' => 'Lista piłkarzy zaktualizowana!']);
     }
 
@@ -83,7 +85,8 @@ class EventsList extends Component
 
     public function updateBetEventDetails()
     {
-        dd("update results");
+
+        dd($this->state);
     }
 
     public function render()
