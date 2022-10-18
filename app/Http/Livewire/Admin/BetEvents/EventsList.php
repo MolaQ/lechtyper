@@ -13,7 +13,8 @@ class EventsList extends Component
     public $state = [];
     public $betEvent;
     public $betEventDetails = [];
-    public $form2 = [];
+    public $f = [];
+    public $e;
     public $showEditModal = false;
     public $showForm2 = false;
 
@@ -44,6 +45,7 @@ class EventsList extends Component
             );
         }
         $this->betEventDetails = BetEventDetail::with('betevent', 'footballer')->where('betevent_id', $betEvent->id)->whereIn('footballer_id', $activeFootballers)->get();
+        $this->f = $this->betEventDetails->toArray();
         $this->dispatchBrowserEvent('show-form2', ['message' => 'Lista piłkarzy zaktualizowana!']);
     }
 
@@ -83,10 +85,10 @@ class EventsList extends Component
         $this->dispatchBrowserEvent('hide-form', ['message' => 'Dane spotkania zaktualizowano!']);
     }
 
-    public function updateBetEventDetails()
+    public function updateBetEventDetail($id, $id2)
     {
 
-        dd($this->state);
+        dd($id, $id2);
     }
 
     public function render()

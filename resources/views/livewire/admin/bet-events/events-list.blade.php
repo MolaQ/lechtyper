@@ -133,45 +133,54 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" autocomplete="off" wire:submit.prevent="{{ 'updateBetEventDetails' }}">
 
-                        {{-- <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                             <label for="number">Spotkanie</label>
                             <input wire:model.defer="state.name" type="text"
                                 class="form-control @error('name') is-invalid @enderror" id="name">
                         </div> --}}
 
-                        <div>
-                            @foreach ($betEventDetails as $betEventDetail)
-                                <p><small>{{ $betEventDetail['footballer']['name'] }}</small>
-                                    <input type="hiiden" wire:model.defer="state.{{ $betEventDetail['id'] }}"
-                                        disabled>
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Imię i naziwsko</th>
+                                    <th scope="col">Czas</th>
+                                    <th scope="col">Asysty</th>
+                                    <th scope="col">Gole</th>
+                                    <th scope="col">Ż.K.</th>
+                                    <th scope="col">C.K.</th>
+                                    <th scope="col">Aktualizuj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                                    <input
-                                        wire:model.defer="state.{{ $betEventDetail['id'] }} . yellow . {{ $betEventDetail['yellowcards'] }}"
-                                        type="text">
-                                </p>
-                            @endforeach
+                                @foreach ($betEventDetails as $betEventDetail)
+                                    <tr>
+                                        <th>{{ $loop->iteration }}</th>
+                                        <td>{{ $betEventDetail->footballer->name }}</td>
+                                        <td>{{ $betEventDetail->time }}</td>
+                                        <td>{{ $betEventDetail->assists }}</td>
+                                        <td>{{ $betEventDetail->goals }}</td>
+                                        <td>{{ $betEventDetail->yellowcards }}</td>
+                                        <td>{{ $betEventDetail->redcards }}</td>
+                                        <td><a href="" class="btn rounded-pill btn-primary btn-sm"
+                                                wire:click.prevent="updateBetEventDetail( {{ $betEventDetail->footballer->id }} , {{ $betEventDetail->betevent->id }} )">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a></td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
 
 
 
-                        </div>
-
-
-
-                        <div class="col-12">
-                            <button type="button" class="btn btn-secondary"
-                                data-bs-dismiss="modal">Zrezygnuj</button>
-                            <button type="submit" class="btn btn-primary">
-                                @if ($showEditModal)
-                                    <span>Aktualizuj</span>
-                                @else
-                                    <span>Dodaj</span>
-                                @endif
-
-                            </button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
