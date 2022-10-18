@@ -12,8 +12,10 @@ class EventsList extends Component
 {
     public $state = [];
     public $betEvent;
-    public $betEventsDetails;
+    public $betEventDetails = [];
+    public $form2 = [];
     public $showEditModal = false;
+
 
     public function addNew()
     {
@@ -31,16 +33,17 @@ class EventsList extends Component
         $this->dispatchBrowserEvent('show-form');
     }
 
-public function addBetDetails(BetEvent $betEvent)
-{
-
-$activeFootballers = Footballer::where('status','active')->pluck('id')->toArray();
-foreach($activeFootballers as $activeFootballer)
-{
-    BetEventDetail::updateOrCreate(
-        ['betevent_id' => $betEvent->id, 'footballer_id' => $activeFootballer]);
-}
-}
+    public function addBetDetails(BetEvent $betEvent)
+    {
+        $activeFootballers = Footballer::where('status', 'active')->pluck('id')->toArray();
+        foreach ($activeFootballers as $activeFootballer) {
+            BetEventDetail::updateOrCreate(
+                ['betevent_id' => $betEvent->id, 'footballer_id' => $activeFootballer]
+            );
+        }
+        $this->betEventDetails = BetEventDetail::with('betEvent', 'footballer')->where('betevent_id', $betEvent->id)->whereIn('footballer_id', $activeFootballers)->get();
+        $this->dispatchBrowserEvent('show-form2', ['message' => 'Lista piłkarzy zaktualizowana!']);
+    }
 
     public function createBetEvent()
     {
@@ -76,6 +79,11 @@ foreach($activeFootballers as $activeFootballer)
         $this->betEvent->update($data);
 
         $this->dispatchBrowserEvent('hide-form', ['message' => 'Dane spotkania zaktualizowano!']);
+    }
+
+    public function updateBetEventDetails()
+    {
+        dd("update results");
     }
 
     public function render()

@@ -45,9 +45,9 @@
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                                 <a href="" class="btn rounded-pill btn-success btn-sm"
-                                wire:click.prevent="addBetDetails({{ $betevent }})">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                            </a>
+                                    wire:click.prevent="addBetDetails({{ $betevent }})">
+                                    <i class="fa-solid fa-calendar-day"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -56,7 +56,7 @@
         </table>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Form 1-->
     <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         wire:ignore.self>
         <div class="modal-dialog modal-xl">
@@ -87,7 +87,7 @@
                                 class="form-control @error('hashtag') is-invalid @enderror" id="hashtag">
                         </div>
                         <div class="col-md-3">
-                            <label for="datetimepicker">Data i godzina  [YYYY-mm-dd H:i:s]</label>
+                            <label for="datetimepicker">Data i godzina [YYYY-mm-dd H:i:s]</label>
                             <input wire:model.defer="state.datetime" type="text"
                                 class="form-control @error('datetime') is-invalid @enderror date" id='datetimepicker'>
                         </div>
@@ -120,54 +120,38 @@
     </div>
     <!-- Modal end -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="form2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    <!-- Modal Form 2-->
+    <div class="modal fade" id="form2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
         wire:ignore.self>
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        @if ($showEditModal)
-                            <span>Edytuj dane spotkania</span>
-                        @else
-                            <span>Dodaj nowe spotkanie</span>
-                        @endif
+                        <span>Szczegóły spotkania</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" autocomplete="off"
-                        wire:submit.prevent="{{ $showEditModal ? 'updateBetEvent' : 'createBetEvent' }}">
+                    <form class="row g-3" autocomplete="off" wire:submit.prevent="{{ 'updateBetEventDetails' }}">
 
                         <div class="col-md-4">
                             <label for="number">Spotkanie</label>
                             <input wire:model.defer="state.name" type="text"
                                 class="form-control @error('name') is-invalid @enderror" id="name">
                         </div>
+                        <div>
+                            @foreach ($betEventDetails as $betEventDetail)
+                                <p>{{ $betEventDetail->footballer->name }}</p>
+                            @endforeach
 
-                        <div class="col-md-3">
-                            <label for="hashtag">#hashtag</label>
-                            <input wire:model.defer="state.hashtag" type="text"
-                                class="form-control @error('hashtag') is-invalid @enderror" id="hashtag">
+
                         </div>
-                        <div class="col-md-3">
-                            <label for="datetimepicker">Data i godzina  [YYYY-mm-dd H:i:s]</label>
-                            <input wire:model.defer="state.datetime" type="text"
-                                class="form-control @error('datetime') is-invalid @enderror date" id='datetimepicker'>
-                        </div>
-                        <div class="col-md-1">
-                            <label for="homescore">Gospod.</label>
-                            <input wire:model.defer="state.homescore" type="text"
-                                class="form-control @error('homescore') is-invalid @enderror" id="homescore">
-                        </div>
-                        <div class="col-md-1">
-                            <label for="awayscore">Goście</label>
-                            <input wire:model.defer="state.awayscore" type="text"
-                                class="form-control @error('awayscore') is-invalid @enderror" id="awayscore">
-                        </div>
+
+
 
                         <div class="col-12">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Zrezygnuj</button>
                             <button type="submit" class="btn btn-primary">
                                 @if ($showEditModal)
                                     <span>Aktualizuj</span>
