@@ -7,6 +7,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Livewire;
 
 class TwitterController extends Controller
 {
@@ -72,6 +73,9 @@ class TwitterController extends Controller
 
 
         Auth::login($user);
+
+
+
         // Auth::logout();
 
         // if(Auth::check())

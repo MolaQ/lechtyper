@@ -7,11 +7,23 @@ use Livewire\Component;
 
 class LastSeen extends Component
 {
+    public $users=[];
+
+    public function refreshUsers()
+    {
+        $this->users = User::orderBy('updated_at', 'DESC')
+        ->limit(5)
+        ->get();
+
+        $this->refresh();
+    }
+
     public function render()
     {
-        $users = User::orderBy('updated_at', 'DESC')
+        $this->users = User::orderBy('updated_at', 'DESC')
             ->limit(5)
             ->get();
+
         return view('livewire.last-seen');
     }
 }

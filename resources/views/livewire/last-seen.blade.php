@@ -1,3 +1,10 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    <ul>
+
+        @foreach($users as $key => $user)
+        <li>{{ $user->screen_name }} | {{ $user->updated_at }}</li>
+    @endforeach
+
+    </ul>
+
 </div>

@@ -49,6 +49,7 @@
                         {{ $slot }}
                     </div>
 
+                    <livewire:LastSeen />
 
                 </div>
             </main>
