@@ -49,8 +49,6 @@
                         {{ $slot }}
                     </div>
 
-                    <livewire:LastSeen />
-
                 </div>
             </main>
             @include('layouts.partials.footer')

@@ -38,7 +38,7 @@
                     <div class="row">
                         {{ $content }}
                     </div>
-                    @livewire('last-seen')
+
                 </div>
             </main>
             @include('components.partials.footer')

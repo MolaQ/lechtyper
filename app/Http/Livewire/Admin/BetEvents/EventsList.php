@@ -38,7 +38,7 @@ class EventsList extends Component
     public function addBetDetails(BetEvent $betEvent)
     {
         $this->betEvent = $betEvent;
-        $activeFootballers = Footballer::where('status', 'active')->pluck('id')->toArray();
+        $activeFootballers = Footballer::where('status', 'Aktywny')->pluck('id')->toArray();
         foreach ($activeFootballers as $activeFootballer) {
             BetEventDetail::updateOrCreate(
                 ['betevent_id' => $betEvent->id, 'footballer_id' => $activeFootballer]
