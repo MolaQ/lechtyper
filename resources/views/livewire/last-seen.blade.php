@@ -8,7 +8,7 @@
             <div class="card-body">
 
               @foreach($users as $key => $user)
-              <img src="{{ $user->profile_image_url }}" alt="{{ $user->screen_name }}" class="rounded-pill me-2">
+              <img src="{{ $user->profile_image_url }}" alt="{{ $user->screen_name }}" class="img-thumbnail rounded-pill">
               @endforeach
             </div>
           </div>
