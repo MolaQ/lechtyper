@@ -21,7 +21,6 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><img src="{{ Auth::user()->profile_image_url }}" alt="{{ Auth::user()->name }}" class="rounded-pill"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Wyślij tweet'a</a></li>
                     <li><a class="dropdown-item" href="#!">Rezygnacja</a></li>
                     <li>
                         <hr class="dropdown-divider" />
