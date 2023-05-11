@@ -1,10 +1,20 @@
 <div>
-    <ul>
 
-        @foreach($users as $key => $user)
-        <li>{{ $user->screen_name }} | {{ $user->updated_at }}</li>
-    @endforeach
+    <div>
+        <div class="card text-center">
+            <div class="card-header text-light bg-primary">
+                {{ __('interface.lastseen') }}
+            </div>
+            <div class="card-body">
 
-    </ul>
+              @foreach($users as $key => $user)
+              <img src="{{ $user->profile_image_url }}" alt="{{ $user->screen_name }}" class="rounded-pill me-2">
+              @endforeach
+            </div>
+          </div>
+
+    </div>
+
+
 
 </div>
