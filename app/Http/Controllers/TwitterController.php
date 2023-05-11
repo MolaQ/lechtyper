@@ -7,7 +7,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Livewire;
 
 class TwitterController extends Controller
 {
@@ -41,6 +40,10 @@ class TwitterController extends Controller
 
         $oauth_token = $token['oauth_token'];
         $oauth_token_secret = $token['oauth_token_secret'];
+
+        session(['access_token' => $oauth_token]);
+        session(['access_token_secret' => $oauth_token_secret]);
+
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'), $oauth_token, $oauth_token_secret);
         $content = $connection->get("account/verify_credentials");
 
@@ -91,7 +94,9 @@ class TwitterController extends Controller
     }
     public function logout()
     {
+
         if (Auth::check()) Auth::logout();
+        session()->flush();
         return redirect('/');
     }
 }

@@ -36,7 +36,7 @@
             <main>
                 <div class="container-fluid px-4 py-3">
                     <div class="row">
-                        {{ $content }}
+                        <livewire:home-page>
                     </div>
 
                 </div>

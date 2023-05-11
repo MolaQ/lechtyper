@@ -11,8 +11,7 @@ class HomePage extends Component
     {
 
         return view('livewire.home-page')
-        ->layout('components.app')
-        ->slot('content');
+               ->extends('components.app');
 
     }
 }
