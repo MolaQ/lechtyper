@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -47,8 +48,6 @@ class TwitterController extends Controller
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'), $oauth_token, $oauth_token_secret);
         $content = $connection->get("account/verify_credentials");
 
-
-
         $user = User::firstOrNew(['id_str' => $content->id_str]);
         $user->id_str = $content->id_str;
         $user->name = $content->name;
@@ -67,6 +66,9 @@ class TwitterController extends Controller
         $user->profile_image_url = $content->profile_image_url;
         $user->save();
         $user->touch();
+        $r = Role::where('title', 'pending')->pluck('id')->toArray();
+        if ($user->roles->count()==0) $user->roles()->sync($r);;
+
 
         // $timeline = $connection->get("statuses/user_timeline", ["screen_name" => "LechTYPER"]);
         // dd($timeline);
@@ -78,18 +80,6 @@ class TwitterController extends Controller
         Auth::login($user);
 
 
-
-        // Auth::logout();
-
-        // if(Auth::check())
-        // {
-        //     dd($user->name);
-
-        // }
-        // else
-        // {
-        //     dd('not');
-        // }
         return redirect('/');
     }
     public function logout()
