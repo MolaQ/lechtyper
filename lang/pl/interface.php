@@ -2,5 +2,5 @@
 
 return [
     'lastseen'      => 'ostatnio widziani',
-    'sendtweet'      => 'wyślij tweeta',
+    'sendtweet'      => 'napisz z #LechTYPER',
 ];
