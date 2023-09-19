@@ -10,7 +10,7 @@
     <title>Lechtyper</title>
     <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    @livewireStyles
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -24,11 +24,11 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 {{-- SIDEBAR MENU --}}
                 <div class="sb-sidenav-menu">
-                    @livewire('sidebar')
+                    {{-- @livewire('sidebar') --}}
                 </div>
                 {{-- SIDEBAR FOOTER --}}
                 <div class="sb-sidenav-footer">
-                    @livewire('twitter-button')
+                    {{-- @livewire('twitter-button') --}}
                 </div>
             </nav>
         </div>
@@ -36,7 +36,8 @@
             <main>
                 <div class="container-fluid px-4 py-3">
                     <div class="row">
-                        <livewire:home-page>
+                        {{-- <livewire:home-page /> --}}
+                        @livewire('home-page')
                     </div>
 
                 </div>

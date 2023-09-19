@@ -6,10 +6,10 @@
             </div>
             <div class="col-md-3">
                 <div>
-                    <livewire:tweet>
+
                 </div>
                 <div>
-                    <livewire:last-seen>
+
                 </div>
             </div>
         </div>
