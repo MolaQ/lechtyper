@@ -4,7 +4,13 @@
     "users": "Użytkownicy",
     "user name": "Nazwa użytkownika",
     "screen name": "Login",
+    "Users": "Użytkownicy",
+    "Roles": "Uprawnienia",
 
     "about_us": "About Us",
-    "contact_us": "Contact Us"
+    "contact_us": "Contact Us",
+    "Description": "Opis z Twittera",
+    "User created at": "Dodany",
+    "User last seen": "Ostatnio widziany",
+    "Actions": "Akcje"
 }

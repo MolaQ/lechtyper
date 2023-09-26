@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TwitterController;
+
 use App\Livewire\Admin\Users\ListUsers;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\FAQ;
@@ -22,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomePage::class)->name('home');
 Route::get('/faq', FAQ::class)->name('faq');
 
+// Route::get('/twitter', [MyTwitterConnect::class, 'connectTwitter'])->name('twitter');
+// Route::get('/twitter/callback', [MyTwitterConnect::class, 'twitterCallback'])->name('twitter.callback');
+// Route::get('/twitter/logout', [MyTwitterConnect::class, 'logout'])->name('twitter.logout');
+
+//CONTROLLER LARAVEL
 Route::get('/twitter', [TwitterController::class, 'connect_twitter'])->name('twitter');
 Route::get('/twitter/callback', [TwitterController::class, 'twitter_callback'])->name('twitter.callback');
 Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitter.logout');

@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Collection;
+use Livewire\WithPagination;
 
 class ListUsers extends Component
 {
@@ -18,14 +19,18 @@ class ListUsers extends Component
     public $userRoles = [];
     public $roles = [];
     public $showEditModal = false;
+    public $editingState = 0;
+    public $editingUserID = 0;
+    public $perPage = 1;
 
+    use WithPagination;
+    
     public function edit(User $user)
     {
-        $this->showEditModal = true;
+        
+        $this->editingState = 1;
+        $this->editingUserID = $user->id;
         $this->editUser = $user;
-        $this->name = $user->name;
-        $this->nick = $user->screen_name;
-        $this->img = $user->profile_image_url;
         $this->roles = Role::pluck('title', 'id');
         $roles = [];
         $tab = $user->roles->toArray();
@@ -41,17 +46,25 @@ class ListUsers extends Component
     {
         $r = Role::whereIn('title', $this->userRoles)->pluck('id')->toArray();
         $this->editUser->roles()->sync($r);
-        $this->dispatchBrowserEvent('hide-form', ['message' => 'Zaktualizowano uprawnienia użytkownika']);
+        //$this->dispatchBrowserEvent('hide-form', ['message' => 'Zaktualizowano uprawnienia użytkownika']);
+        $this->editingState = 0;
+        $this->editingUserID = 0;
     }
 
+    public function cancelEdit()
+    {
+        $this->editingState = 0;
+        $this->editingUserID = 0;
+    }
 
     public function render()
-    {
-        $users = User::with('roles')->paginate(20);
+    {   $paginator = User::paginate($this->perPage);
+        $users = User::with('roles')->paginate($this->perPage);
         $roles = Role::pluck('title', 'id');
         return view('livewire.admin.users.list-users', [
             'users' => $users,
             'roles' => $roles,
+            'paginator' => $paginator,
         ])->layout('components.admin.layouts.app');
     }
 }

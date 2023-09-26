@@ -1,3 +1,3 @@
 <div>
-    panel administracyjny
+    panel administracyjny {{Auth::user()->name}}
 </div>
