@@ -46,8 +46,9 @@ class TwitterController extends Controller
         session(['access_token_secret' => $oauth_token_secret]);
 
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'), $oauth_token, $oauth_token_secret);
-        $content = $connection->get("account/verify_credentials");
 
+        $content = $connection->get("account/verify_credentials");
+        // dd($content);
         $user = User::firstOrNew(['id_str' => $content->id_str]);
         $user->id_str = $content->id_str;
         $user->name = $content->name;

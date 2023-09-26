@@ -1,3 +1,0 @@
-<div>
-    MAIN PAGE
-</div>
