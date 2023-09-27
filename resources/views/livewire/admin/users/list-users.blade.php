@@ -1,48 +1,60 @@
 <div>
-    <div class="mb-9">
-        <div class="row g-2 mb-4">
-            <div class="col-auto">
-                <h2 class="mb-0">{{ __('Users') }}</h2>
-            </div>
+    <div class="row g-2 mb-4">
+        <div class="col-auto">
+            <h2 class="mb-0">{{ __('Users') }}</h2>
         </div>
-
+    </div>
+        <div class="search-box mb-3 mx-auto">
+                <input class="form-control search-input search form-control-sm" type="search" placeholder="Search"
+                    aria-label="Search">
+                <svg class="svg-inline--fa fa-magnifying-glass search-box-icon" aria-hidden="true" focusable="false"
+                    data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z">
+                    </path>
+                </svg>
+        </div>
         <div class="table-responsive">
-            <table class="table table-sm mb-0">
+            <table class="table table-striped table-sm fs--1 mb-0">
                 <thead>
                     <tr>
-                        <th class="sort align-middle pe-5" scope="col" data-sort="customer" style="width:10%;">
-                            {{ __('user name') }}</th>
-                        <th class="sort align-middle pe-5" scope="col" data-sort="email" style="width:20%;">
-                            {{ __('screen name') }}</th>
-                        <th class="sort align-middle text-end" scope="col" data-sort="total-orders" style="width:10%">
-                            {{ __('Description') }}</th>
-                        <th class="sort align-middle text-end ps-3" scope="col" data-sort="total-spent"
-                            style="width:10%">{{ __('Roles') }}</th>
-                        <th class="sort align-middle text-end" scope="col" data-sort="last-seen" style="width:15%;">
+                        <th class="sort border-top ps-3" data-sort="nr">{{ __('Nr') }}</th>
+                        <th class="sort border-top ps-3" data-sort="name">{{ __('user name') }}</th>
+                        <th class="sort border-top" data-sort="screen_name">{{ __('screen name') }}
+                        </th>
+                        <th class="sort border-top" data-sort="description">{{ __('Description') }}
+                        </th>
+                        <th class="sort border-top" data-sort="created_at">
                             {{ __('User last seen') }}</th>
-                        <th class="sort align-middle text-end pe-0" scope="col" data-sort="last-order"
-                            style="width:10%;min-width: 150px;">{{ __('User created at') }}</th>
-                        <th class="sort align-middle text-end pe-0" scope="col" data-sort="last-order"
-                            style="width:10%;min-width: 150px;">{{ __('Actions') }}</th>
+                        <th class="sort border-top" data-sort="updated_at">
+                            {{ __('User created at') }}</th>
+                        <th class="sort border-top" data-sort="roles">{{ __('Roles') }}</th>
+                        <th class="sort text-end align-middle pe-0 border-top" scope="col">
+                            {{ __('Actions') }}</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="list">
                     @foreach($users as $user)
                         <tr>
-                            <td class="customer align-middle white-space-nowrap pe-5"><a
+                            <td class="align-middle">{{ $loop->iteration }}</td>
+
+                            <td class="align-middle"><a
                                     class="d-flex align-items-center text-1100"
                                     href="../../../apps/e-commerce/landing/profile.html">
                                     <div class="avatar avatar-m"><img class="rounded-circle"
                                             src="{{ $user->profile_image_url }}" alt="{{ $user->name }}" />
                                     </div>
                                     <p class="mb-0 ms-3 text-1100 fw-bold">{{ $user->name }}</p>
-                                </a></td>
-                            <td class="email align-middle white-space-nowrap pe-5">{{ $user->screen_name }}</td>
-                            <td class="total-orders align-middle white-space-nowrap fw-semi-bold text-end text-1000">
-                                {{ $user->description }}</td>
-                            <td class="total-spent align-middle white-space-nowrap fw-bold text-end ps-3 text-1100">
+                                </a>
+                            </td>
+                            <td class="align-middle">{{ $user->screen_name }}</td>
+                            <td class="align-middle">{{ $user->description }}</td>
+                            <td class="align-middle">{{ $user->updated_at->diffForHumans() }}</td>
+                            <td class="align-middle">{{ $user->created_at->diffForHumans() }}</td>
+                            <td class="align-middle">
 
-                                @if($editingUserID == $user->id)
+                                @if(($editingUserID == $user->id) && ($editingState==1))
 
                                     @foreach($roles as $role)
                                         <div class="form-check mx-5">
@@ -66,43 +78,21 @@
                                         <span class="badge bg-light text-dark">{{ ucfirst($r->title[0]) }}</span>
                                     @endforeach
                                 @endif
-
                             </td>
-
-                            <td class="last-seen align-middle white-space-nowrap text-700 text-end">
-                                {{ $user->updated_at->diffForHumans() }}</td>
-                            <td class="last-order align-middle white-space-nowrap text-700 text-end">
-                                {{ $user->created_at->diffForHumans() }}</td>
-                            <td class="last-order align-middle white-space-nowrap text-700 text-end">
+                            <td  class="align-middle">
                                 <a href="" wire:click.prevent="edit({{ $user }})">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </a>
 
+                                    <span class="fas fa-edit text-primary fs-1"></span>
+
+                                    </a>
                             </td>
                         </tr>
                     @endforeach
 
-
                 </tbody>
             </table>
-
-
-        </div>
-        <!-- Przykład dostosowania komponentu paginacji Livewire do Phoenix Bootstrap -->
-        
-        <div class="d-flex justify-content-center mt-3">
-        @if ($paginator->hasPages())
-            <button wire:click='previousPage' class="page-link" data-list-pagination="prev"><span
-                    class="fas fa-chevron-left"></span>
-            </button>
-            <ul class="mb-0 pagination"></ul>
-            <button wire:click='nextPage' class="page-link pe-0" data-list-pagination="next">
-                <span class="fas fa-chevron-right"></span>
-            </button>
-             @endif
         </div>
 
 
-    </div>
 
 </div>

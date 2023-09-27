@@ -1,0 +1,107 @@
+<div>
+    <div class="mb-9">
+        <div class="row g-2 mb-4">
+            <div class="col-auto">
+                <h2 class="mb-0">{{ __('Users') }}</h2>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-sm mb-0">
+                <thead>
+                    <tr>
+                        <th class="sort align-middle pe-5" scope="col" data-sort="customer" style="width:10%;">
+                            {{ __('user name') }}</th>
+                        <th class="sort align-middle pe-5" scope="col" data-sort="email" style="width:20%;">
+                            {{ __('screen name') }}</th>
+                        <th class="sort align-middle text-end" scope="col" data-sort="total-orders" style="width:10%">
+                            {{ __('Description') }}</th>
+                        <th class="sort align-middle text-end ps-3" scope="col" data-sort="total-spent"
+                            style="width:10%">{{ __('Roles') }}</th>
+                        <th class="sort align-middle text-end" scope="col" data-sort="last-seen" style="width:15%;">
+                            {{ __('User last seen') }}</th>
+                        <th class="sort align-middle text-end pe-0" scope="col" data-sort="last-order"
+                            style="width:10%;min-width: 150px;">{{ __('User created at') }}</th>
+                        <th class="sort align-middle text-end pe-0" scope="col" data-sort="last-order"
+                            style="width:10%;min-width: 150px;">{{ __('Actions') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                        <tr>
+                            <td class="customer align-middle white-space-nowrap pe-5"><a
+                                    class="d-flex align-items-center text-1100"
+                                    href="../../../apps/e-commerce/landing/profile.html">
+                                    <div class="avatar avatar-m"><img class="rounded-circle"
+                                            src="{{ $user->profile_image_url }}" alt="{{ $user->name }}" />
+                                    </div>
+                                    <p class="mb-0 ms-3 text-1100 fw-bold">{{ $user->name }}</p>
+                                </a></td>
+                            <td class="email align-middle white-space-nowrap pe-5">{{ $user->screen_name }}</td>
+                            <td class="total-orders align-middle white-space-nowrap fw-semi-bold text-end text-1000">
+                                {{ $user->description }}</td>
+                            <td class="total-spent align-middle white-space-nowrap fw-bold text-end ps-3 text-1100">
+
+                                @if($editingUserID == $user->id)
+
+                                    @foreach($roles as $role)
+                                        <div class="form-check mx-5">
+                                            <input wire:model.defer="userRoles" class="form-check-input" type="checkbox" value="{{ $role }}"
+                                                id="{{ $name }}"
+                                                {{ in_array($role, $userRoles) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                {{ $role }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+
+                                    <button wire:click='cancelEdit()' class="btn btn-secondary" data-bs-dismiss="modal">Zrezygnuj</button>
+                                    <button wire:click='updateUserRole()' class="btn btn-primary"> Aktualizuj</button>
+
+
+
+                                @else
+                                    @foreach($user->roles as $r)
+                                        <span class="badge bg-light text-dark">{{ ucfirst($r->title[0]) }}</span>
+                                    @endforeach
+                                @endif
+
+                            </td>
+
+                            <td class="last-seen align-middle white-space-nowrap text-700 text-end">
+                                {{ $user->updated_at->diffForHumans() }}</td>
+                            <td class="last-order align-middle white-space-nowrap text-700 text-end">
+                                {{ $user->created_at->diffForHumans() }}</td>
+                            <td class="last-order align-middle white-space-nowrap text-700 text-end">
+                                <a href="" wire:click.prevent="edit({{ $user }})">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </a>
+
+                            </td>
+                        </tr>
+                    @endforeach
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <!-- Przykład dostosowania komponentu paginacji Livewire do Phoenix Bootstrap -->
+
+        <div class="d-flex justify-content-center mt-3">
+        @if ($paginator->hasPages())
+            <button wire:click='previousPage' class="page-link" data-list-pagination="prev"><span
+                    class="fas fa-chevron-left"></span>
+            </button>
+            <ul class="mb-0 pagination"></ul>
+            <button wire:click='nextPage' class="page-link pe-0" data-list-pagination="next">
+                <span class="fas fa-chevron-right"></span>
+            </button>
+             @endif
+        </div>
+
+
+    </div>
+
+</div>

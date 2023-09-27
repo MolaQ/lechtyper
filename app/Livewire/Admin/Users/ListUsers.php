@@ -21,13 +21,13 @@ class ListUsers extends Component
     public $showEditModal = false;
     public $editingState = 0;
     public $editingUserID = 0;
-    public $perPage = 1;
+    public $perPage = 10;
 
     use WithPagination;
-    
+
     public function edit(User $user)
     {
-        
+
         $this->editingState = 1;
         $this->editingUserID = $user->id;
         $this->editUser = $user;
@@ -39,14 +39,13 @@ class ListUsers extends Component
         }
         $this->userRoles = $roles;
         $this->state = $user->toArray();
-        $this->dispatch('show-form');
+
     }
 
     public function updateUserRole()
     {
         $r = Role::whereIn('title', $this->userRoles)->pluck('id')->toArray();
         $this->editUser->roles()->sync($r);
-        //$this->dispatchBrowserEvent('hide-form', ['message' => 'Zaktualizowano uprawnienia użytkownika']);
         $this->editingState = 0;
         $this->editingUserID = 0;
     }
@@ -58,13 +57,11 @@ class ListUsers extends Component
     }
 
     public function render()
-    {   $paginator = User::paginate($this->perPage);
-        $users = User::with('roles')->paginate($this->perPage);
+    {   $users = User::with('roles')->paginate($this->perPage);
         $roles = Role::pluck('title', 'id');
         return view('livewire.admin.users.list-users', [
             'users' => $users,
             'roles' => $roles,
-            'paginator' => $paginator,
         ])->layout('components.admin.layouts.app');
     }
 }
