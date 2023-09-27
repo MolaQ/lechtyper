@@ -80,12 +80,17 @@
 
                 <!-- parent pages-->
                 <div class="nav-item-wrapper"><a class="nav-link label-1" href="{{ route('home') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="twitter"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">#LechTYPER</span></span>
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="twitter"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">{{__('Site name')}}</span></span>
+                    </div>
+                  </a>
+                </div>
+                <div class="nav-item-wrapper"><a class="nav-link label-1" href="{{ route('stats') }}" role="button" data-bs-toggle="" aria-expanded="false">
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="info"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">{{__('Stats')}}</span></span>
                     </div>
                   </a>
                 </div>
                 <div class="nav-item-wrapper"><a class="nav-link label-1" href="{{ route('faq') }}" role="button" data-bs-toggle="" aria-expanded="false">
-                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="info"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">FAQ</span></span>
+                    <div class="d-flex align-items-center"><span class="nav-link-icon"><span data-feather="info"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">{{__('FAQ')}}</span></span>
                     </div>
                   </a>
                 </div>
@@ -319,10 +324,10 @@
         </div>
       </div>
       <div class="content">
-        <div class="d-flex flex-center content-min-h">
-          <div class="text-center py-9">
+        <div class="d-flex content-min-h">
+
             {{ $slot }}
-          </div>
+
         </div>
         <footer class="footer position-absolute">
           <div class="row g-0 justify-content-between align-items-center h-100">

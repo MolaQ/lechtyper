@@ -1,0 +1,271 @@
+<div>
+    <div class="pb-6">
+        <div class="row align-items-center justify-content-between g-3 mb-6">
+            <div class="col-12 col-md-auto">
+                <h2 class="mb-0">{{ __('Stats') }}</h2>
+            </div>
+            <div class="col-12 col-md-auto">
+                <div class="flatpickr-input-container"><input class="form-control ps-6 datetimepicker flatpickr-input"
+                        id="datepicker" type="text"
+                        data-options="{&quot;dateFormat&quot;:&quot;M j, Y&quot;,&quot;disableMobile&quot;:true,&quot;defaultDate&quot;:&quot;Mar 1, 2022&quot;}"
+                        readonly="readonly"><span class="uil uil-calendar-alt flatpickr-icon text-700"></span></div>
+            </div>
+        </div>
+        <div class="px-3 mb-6">
+            <div class="row justify-content-between">
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-end-xxl-0 border-bottom-xxl-0 border-end border-bottom pb-4 pb-xxl-0 ">
+                    <span class="uil fs-3 lh-1 uil-users-alt text-primary"></span>
+                    <h1 class="fs-3 pt-3">28,00</h1>
+                    <p class="fs--1 mb-0">{{ __('Total users') }}</p>
+                </div>
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-end-xxl-0 border-bottom-xxl-0 border-end-md border-bottom pb-4 pb-xxl-0">
+                    <span class="uil fs-3 lh-1 uil-envelope-upload text-info"></span>
+                    <h1 class="fs-3 pt-3">1,866</h1>
+                    <p class="fs--1 mb-0">Emails Sent</p>
+                </div>
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-bottom-xxl-0 border-bottom border-end border-end-md-0 pb-4 pb-xxl-0 pt-4 pt-md-0">
+                    <span class="uil fs-3 lh-1 uil-envelopes text-primary"></span>
+                    <h1 class="fs-3 pt-3">1,366</h1>
+                    <p class="fs--1 mb-0">Emails Delivered</p>
+                </div>
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-end-md border-end-xxl-0 border-bottom border-bottom-md-0 pb-4 pb-xxl-0 pt-4 pt-xxl-0">
+                    <span class="uil fs-3 lh-1 uil-envelope-open text-info"></span>
+                    <h1 class="fs-3 pt-3">1,200</h1>
+                    <p class="fs--1 mb-0">Emails Opened</p>
+                </div>
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-end border-end-xxl-0 pb-md-4 pb-xxl-0 pt-4 pt-xxl-0">
+                    <span class="uil fs-3 lh-1 uil-envelope-check text-success"></span>
+                    <h1 class="fs-3 pt-3">900</h1>
+                    <p class="fs--1 mb-0">Emails Clicked</p>
+                </div>
+                <div
+                    class="col-6 col-md-4 col-xxl-2 text-center border-start-xxl border-end-xxl pb-md-4 pb-xxl-0 pt-4 pt-xxl-0">
+                    <span class="uil fs-3 lh-1 uil-envelope-block text-danger"></span>
+                    <h1 class="fs-3 pt-3">500</h1>
+                    <p class="fs--1 mb-0">Emails Bounce</p>
+                </div>
+            </div>
+        </div>
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-6 pb-3 border-y border-300">
+            <div class="row gx-6">
+                <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-5 mb-md-3 mb-lg-5 mb-xl-2 mb-xxl-3">
+                    <div class="scrollbar">
+                        <h3>Email Campaign Reports</h3>
+                        <p class="text-700">Paid and Verified for each piece of content</p>
+                        <div class="echart-email-campaign-report echart-contacts-width"
+                            style="user-select: none; position: relative;" _echarts_instance_="ec_1695822223863">
+                            <div
+                                style="position: relative; width: 765px; height: 320px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;">
+                                <canvas
+                                    style="position: absolute; left: 0px; top: 0px; width: 765px; height: 320px; user-select: none; padding: 0px; margin: 0px; border-width: 0px;"
+                                    data-zr-dom-id="zr_0" width="765" height="320"></canvas></div>
+                            <div class=""
+                                style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgb(239, 242, 246); border-width: 1px; border-radius: 4px; color: rgb(20, 24, 36); font: 14px / 21px Microsoft YaHei; padding: 7px 10px; top: 0px; left: 0px; transform: translate3d(349px, 93px, 0px); border-color: rgb(203, 208, 221); pointer-events: none; visibility: hidden; opacity: 0;">
+                                <div>
+                                    <p class="mb-2 text-600">
+                                        Email Campaign
+                                    </p>
+                                    <div class="ms-1">
+                                        <h6 class="text-700"><svg class="svg-inline--fa fa-circle me-1 fs--2"
+                                                style="color: #adc5ff;" aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                                </path>
+                                            </svg>
+                                            <!-- <span class="fas fa-circle me-1 fs--2" style="color:#adc5ff"></span> Font Awesome fontawesome.com -->
+                                            Sent : 1366
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-12 col-xl-6 mb-1 mb-sm-0">
+                    <div class="row align-itms-center mb-5 mb-sm-2 mb-md-4">
+                        <div class="col-sm-8 col-md-12 col-lg-8 col-xl-12 col-xxl-8 mb-xl-2 mb-xxl-0">
+                            <h3> Marketing Campaign Report</h3>
+                            <p class="text-700 mb-lg-0">According to the sales data.</p>
+                        </div>
+                        <div class="col-sm-4 col-md-12 col-lg-4 col-xl-12 col-xxl-4"><select
+                                class="form-select form-select">
+                                <option>Ally Aagaard</option>
+                                <option>Alec Haag</option>
+                                <option>Aagaard</option>
+                            </select></div>
+                    </div>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-sm-8 col-md-12 col-lg-8 col-xl-12 col-xxl-8">
+                            <div class="echart-social-marketing-radar"
+                                style="min-height: 320px; width: 100%; user-select: none; position: relative;"
+                                _echarts_instance_="ec_1695822223864">
+                                <div
+                                    style="position: relative; width: 504px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;">
+                                    <canvas
+                                        style="position: absolute; left: 0px; top: 0px; width: 504px; height: 320px; user-select: none; padding: 0px; margin: 0px; border-width: 0px;"
+                                        data-zr-dom-id="zr_0" width="504" height="320"></canvas></div>
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-sm-4 col-md-12 col-lg-4 col-xl-12 col-xxl-4 d-flex justify-content-end-xxl mt-0">
+                            <div
+                                class="d-flex flex-1 justify-content-center d-sm-block d-md-flex d-lg-block d-xl-flex d-xxl-block">
+                                <div class="mb-4 me-6 me-sm-0 me-md-6 me-lg-0 me-xl-6 me-xxl-0">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h4 class="mb-0">15,000</h4><span
+                                            class="badge badge-phoenix badge-phoenix-primary ms-2">+30.63%</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <svg class="svg-inline--fa fa-circle text-warning-300 me-2" aria-hidden="true"
+                                            focusable="false" data-prefix="fas" data-icon="circle" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                            </path>
+                                        </svg>
+                                        <!-- <div class="fa-solid fa-circle text-warning-300 me-2"></div> Font Awesome fontawesome.com -->
+                                        <h6 class="mb-0">Online Campaign</h6>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h4 class="mb-0">5,000</h4><span
+                                            class="badge badge-phoenix badge-phoenix-danger ms-2">+13.52%</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <svg class="svg-inline--fa fa-circle text-primary-300 me-2" aria-hidden="true"
+                                            focusable="false" data-prefix="fas" data-icon="circle" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                            </path>
+                                        </svg>
+                                        <!-- <div class="fa-solid fa-circle text-primary-300 me-2"></div> Font Awesome fontawesome.com -->
+                                        <h6 class="mb-0">Offline Campaign</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-6 gy-7 gx-6">
+            <div class="col-12 col-md-6">
+                <div class="row justify-content-between mb-4">
+                    <div class="col-12">
+                        <h3>Sales Trends</h3>
+                        <p class="text-700">Updated inventory &amp; the sales report.</p>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="d-flex">
+                            <svg class="svg-inline--fa fa-circle text-info-300 me-2" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="circle" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                </path>
+                            </svg>
+                            <!-- <div class="fa-solid fa-circle text-info-300 me-2"></div> Font Awesome fontawesome.com -->
+                            <h6 class="mb-0 me-3 lh-base">Profit</h6>
+                        </div>
+                        <div class="d-flex">
+                            <svg class="svg-inline--fa fa-circle text-primary-200 dark__text-primary-300 me-2"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                </path>
+                            </svg>
+                            <!-- <div class="fa-solid fa-circle text-primary-200 dark__text-primary-300 me-2"></div> Font Awesome fontawesome.com -->
+                            <h6 class="mb-0 lh-base">Revenue</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="echart-sales-trends"
+                    style="height: 270px; width: 100%; user-select: none; position: relative;"
+                    _echarts_instance_="ec_1695822223865">
+                    <div
+                        style="position: relative; width: 765px; height: 270px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+                        <canvas
+                            style="position: absolute; left: 0px; top: 0px; width: 765px; height: 270px; user-select: none; padding: 0px; margin: 0px; border-width: 0px;"
+                            data-zr-dom-id="zr_0" width="765" height="270"></canvas></div>
+                    <div class=""
+                        style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgb(239, 242, 246); border-width: 1px; border-radius: 4px; color: rgb(20, 24, 36); font: 14px / 21px Microsoft YaHei; padding: 7px 10px; top: 0px; left: 0px; transform: translate3d(508px, 35px, 0px); border-color: rgb(203, 208, 221); pointer-events: none; visibility: hidden; opacity: 0;">
+                        <div>
+                            <p class="mb-2 text-600">
+                                26 Sep, 2023
+                            </p>
+                            <div class="ms-1">
+                                <h6 class="text-700"><svg class="svg-inline--fa fa-circle me-1 fs--2"
+                                        style="color: #adc5ff;" aria-hidden="true" focusable="false" data-prefix="fas"
+                                        data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                        </path>
+                                    </svg>
+                                    <!-- <span class="fas fa-circle me-1 fs--2" style="color:#adc5ff"></span> Font Awesome fontawesome.com -->
+                                    Revenue : 7500
+                                </h6>
+                            </div>
+                            <div class="ms-1">
+                                <h6 class="text-700"><svg class="svg-inline--fa fa-circle me-1 fs--2"
+                                        style="color: #60c6ff;" aria-hidden="true" focusable="false" data-prefix="fas"
+                                        data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 512 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                        </path>
+                                    </svg>
+                                    <!-- <span class="fas fa-circle me-1 fs--2" style="color:#60c6ff"></span> Font Awesome fontawesome.com -->
+                                    Profit : 4000
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="row justify-content-between mb-4">
+                    <div class="col-auto">
+                        <h3>Call Campaign Reports</h3>
+                        <p class="text-700">All call campaigns succeeded.</p>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="d-flex">
+                            <svg class="svg-inline--fa fa-circle text-primary me-2" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256z">
+                                </path>
+                            </svg>
+                            <!-- <div class="fa-solid fa-circle text-primary me-2"></div> Font Awesome fontawesome.com -->
+                            <h6 class="mb-0 me-3 lh-base">Campaign</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="echart-call-campaign"
+                    style="height: 290px; width: 100%; user-select: none; position: relative;"
+                    _echarts_instance_="ec_1695822223866">
+                    <div
+                        style="position: relative; width: 765px; height: 290px; padding: 0px; margin: 0px; border-width: 0px;">
+                        <canvas
+                            style="position: absolute; left: 0px; top: 0px; width: 765px; height: 290px; user-select: none; padding: 0px; margin: 0px; border-width: 0px;"
+                            data-zr-dom-id="zr_0" width="765" height="290"></canvas></div>
+                    <div class=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
