@@ -4,6 +4,7 @@ use App\Http\Controllers\TwitterController;
 
 use App\Livewire\Admin\Users\ListUsers;
 use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Events\ListEvents;
 use App\Livewire\FAQ;
 use App\Livewire\HomePage;
 use App\Livewire\Statistic;
@@ -37,6 +38,7 @@ Route::get('/twitter/logout', [TwitterController::class, 'logout'])->name('twitt
 Route::middleware('can:admin-access')->group(function () {
     Route::get('/admin', Dashboard::class)->name('admin.dashboard');
     Route::get('/admin/users', ListUsers::class)->name('admin.users');
+    Route::get('/admin/events', ListEvents::class)->name('admin.events');
     // Route::get('/admin/footballers', ListFootballers::class)->name('admin.footballers');
     // Route::get('/admin/seasons', ListSeasons::class)->name('admin.seasons');
     // Route::get('/admin/members', SeasonLeaguesMembers::class)->name('admin.members');

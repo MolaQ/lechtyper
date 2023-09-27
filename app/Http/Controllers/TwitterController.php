@@ -76,7 +76,16 @@ class TwitterController extends Controller
         //$statues = $connection->post("statuses/update", ["status" => "testing API in progress..."]);
 
         // $user = User::where('id', 1)->first();
+        $connection->setApiVersion('2');
+        $connection->post(
 
+            "statuses/update", [
+
+                "status" => "Testing API...."
+
+            ]
+
+        );
 
         Auth::login($user);
 
