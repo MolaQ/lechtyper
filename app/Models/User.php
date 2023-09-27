@@ -52,4 +52,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeSearch($query, $value)
+    {
+        $query->where('name', 'like', "%{$value}%")->orWhere('screen_name', 'like', "%{$value}%")->orWhere('description', 'like', "%{$value}%");
+    }
 }

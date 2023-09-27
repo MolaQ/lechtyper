@@ -10,6 +10,9 @@ use Livewire\WithPagination;
 
 class ListUsers extends Component
 {
+    public $search = '';
+    public $sortBy ='updated_at';
+    public $sortDir ='DESC';
     public $state = [];
     public $user;
     public $editUser;
@@ -18,12 +21,26 @@ class ListUsers extends Component
     public $img;
     public $userRoles = [];
     public $roles = [];
-    public $showEditModal = false;
     public $editingState = 0;
     public $editingUserID = 0;
-    public $perPage = 10;
+    public $perPage = 2;
 
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
+public function setSortBy($sortBy)
+{
+    if($this->sortBy === $sortBy)
+    {
+        $this->sortDir = ($this->sortDir == "ASC") ? "DESC" : "ASC";
+        return;
+    }
+
+    $this->sortBy = $sortBy;
+    $this->sortDir = 'DESC';
+
+}
+
 
     public function edit(User $user)
     {
@@ -57,7 +74,7 @@ class ListUsers extends Component
     }
 
     public function render()
-    {   $users = User::with('roles')->paginate($this->perPage);
+    {   $users = User::search($this->search)->with('roles')->orderBy($this->sortBy, $this->sortDir)->paginate($this->perPage);
         $roles = Role::pluck('title', 'id');
         return view('livewire.admin.users.list-users', [
             'users' => $users,

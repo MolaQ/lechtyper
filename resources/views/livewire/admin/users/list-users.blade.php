@@ -5,7 +5,7 @@
         </div>
     </div>
         <div class="search-box mb-3 mx-auto">
-                <input class="form-control search-input search form-control-sm" type="search" placeholder="Search"
+                <input wire:model.live.debounce.400ms="search" class="form-control search-input search form-control-sm" type="search" placeholder="Search"
                     aria-label="Search">
                 <svg class="svg-inline--fa fa-magnifying-glass search-box-icon" aria-hidden="true" focusable="false"
                     data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg"
@@ -19,18 +19,18 @@
             <table class="table table-striped table-sm fs--1 mb-0">
                 <thead>
                     <tr>
-                        <th class="sort border-top ps-3" data-sort="nr">{{ __('Nr') }}</th>
-                        <th class="sort border-top ps-3" data-sort="name">{{ __('user name') }}</th>
-                        <th class="sort border-top" data-sort="screen_name">{{ __('screen name') }}
+                        <th wire:click="setSortBy('id')" class="border-top ps-3">{{ __('Nr') }}</th>
+                        <th wire:click="setSortBy('name')" class="border-top ps-3">{{ __('user name') }}</th>
+                        <th wire:click="setSortBy('screen_name')" class="border-top">{{ __('screen name') }}
                         </th>
-                        <th class="sort border-top" data-sort="description">{{ __('Description') }}
+                        <th wire:click="setSortBy('description')" class="border-top">{{ __('Description') }}
                         </th>
-                        <th class="sort border-top" data-sort="created_at">
+                        <th wire:click="setSortBy('updated_at')" class="border-top">
                             {{ __('User last seen') }}</th>
-                        <th class="sort border-top" data-sort="updated_at">
+                        <th wire:click="setSortBy('created_at')" class="border-top">
                             {{ __('User created at') }}</th>
-                        <th class="sort border-top" data-sort="roles">{{ __('Roles') }}</th>
-                        <th class="sort text-end align-middle pe-0 border-top" scope="col">
+                        <th class="border-top">{{ __('Roles') }}</th>
+                        <th class="text-end align-middle pe-0 border-top" scope="col">
                             {{ __('Actions') }}</th>
                     </tr>
                 </thead>
@@ -92,7 +92,16 @@
                 </tbody>
             </table>
         </div>
-
-
+    <div class="flex items-center">
+    <label class="mr-3 py-5">Na stronę</label>
+        <select wire:model.live='perPage'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+@if ($users->hasPages())
+    {{ $users->links() }}
+@endif
 
 </div>
