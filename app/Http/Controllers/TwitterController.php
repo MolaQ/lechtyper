@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+
 class TwitterController extends Controller
 {
     public function connect_twitter(Request $request)
@@ -44,6 +45,7 @@ class TwitterController extends Controller
 
         session(['access_token' => $oauth_token]);
         session(['access_token_secret' => $oauth_token_secret]);
+        
 
         $connection = new TwitterOAuth(env('TWITTER_ID'), env('TWITTER_SECRET'), $oauth_token, $oauth_token_secret);
 
